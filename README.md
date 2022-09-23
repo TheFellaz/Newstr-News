@@ -1,4 +1,4 @@
-# Cool-News
+# Newstr-News
 
 ## Proof of Concept
 
