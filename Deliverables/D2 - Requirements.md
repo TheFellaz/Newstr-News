@@ -176,8 +176,15 @@ The Web user
   
 **4    	Basic Flow of Events**
 1. Use case begins when user creates an account
-2. Users select multiple news categories that they are interested in.
-3. Use case ends
+2. The system logs the users email/username and password into the database
+3. The user then enters their messaging preferences into the system. (frequency of how often to receive their news articles, what time they receive it)
+4. The system saves the messaging preferences in the database
+5. The user then selects the topics they are interested in
+5a. The user can select multiple topics or just one. 
+6. The system will save the topics selected upon the user moving forward in account creation
+7. The system will conclude the account creation process
+8. Use case ends
+
 
 **5    	Alternative Flows**
 5.1    	<alternate flow 1>
@@ -187,13 +194,17 @@ The use case resumes at step 2
 
 **6    	Subflows**
 6.1    	<subflow 1>
-1.  For each category they select, the categories will be added to the database 
-2. If the user does not select any categories, the user will receive general news
+If the user already has an account and wishes to update their preferences:
+1. User selects the “Update your preferences” option on the website, underneath the profile tab
+2. The system brings the user to the same topic selection page as the account creation
+3. The user can then select any additional topics they want to see
+4. The system saves any additional topics to the database
+
 
 **7    	Key Scenarios**
 7.1    	<scenario 1>
 1. The users are waiting for the news articles
-2. The users receive the emergency news articles when appropriate
+2. The users will receive the email containing the topics they have selected at the time and the frequency they have chosen.
 
 **8    	Post-conditions**
 8.1    	The users will receive news articles from the categories they selected
