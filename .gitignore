@@ -102,3 +102,30 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/react,macos,windows,java
+
+
+# React for Newsterweb
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+newsterweb/node_modules
+newsterweb/.pnp
+newsterweb/.pnp.js
+
+# testing
+newsterweb/coverage
+
+# production
+newsterweb/build
+
+# misc
+newsterweb/.DS_Store
+newsterweb/.env.local
+newsterweb/.env.development.local
+newsterweb/.env.test.local
+newsterweb/.env.production.local
+
+newsterweb/npm-debug.log*
+newsterweb/yarn-debug.log*
+newsterweb/yarn-error.log*

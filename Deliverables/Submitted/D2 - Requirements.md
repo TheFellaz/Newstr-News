@@ -50,12 +50,12 @@ Other news applications which provide similar functionality to the users. We wil
 
 
 ## 4. Non-functional requirements
+
 - Reliability - 95% of users receive their news at the sending time
 - Compatibility - Users accessing both the  mobile app and web app receive the same information
 - Usability - Users won't have any trouble setting up accounts
 - Portability - Users can view news from their phone
 - Security - User information will be stored securely and will use security protocols during registration
-
 
 ## 5. MVP
 **Features:**
@@ -138,6 +138,7 @@ The user is registered to the system and can access their profile and customize 
 **9	Special Requirements:**
 
 n/a
+
 
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 

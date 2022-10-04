@@ -1,6 +1,7 @@
 # Team Project - 2 - Requirements
 
 ## 1. Positioning
+
 ### 1.1 Problem statement
 
 The problem of difficulty in finding free, customizable news that is easy to access affects everyday people who struggle finding news that they want to read the impact of which is they are uninformed, and lacking information about things they are interested.
@@ -19,7 +20,7 @@ Consumer segment: Everyday people who struggle to find interesting and relevant 
 
 **Project Manager** - Zachary Parham
 
-Responsible for assigning responsibilities, and managing deadlines and resources to ensure timely completion of assigned tasks. 
+Responsible for assigning responsibilities, and managing deadlines and resources to ensure timely completion of assigned tasks.
 
 **Application Developers** - “The Fellaz” ( Jackson Brittain, Zachary Parham, Hyunsoo Kim, William Rogers, Jacob Olson)
 
@@ -28,28 +29,29 @@ Develop the required tasks of the software. Developers should also test, debug a
 **Testers/ Users** - NAU classmates and peers, The Interviewees, “The Fellaz”
 
 Testers/Users will try our software and give us helpful feedback
- to help developers improve usability, reliability, and functionality.
+to help developers improve usability, reliability, and functionality.
 
 **Competitors** - NY Times, CNN, The Heralds, FOX, NBC, MSN, Apple News
 
 Other news applications which provide similar functionality to the users. We will have similar functionality, but we will have unique features to set us apart.
 
 ## 3. Functional requirements (features)
-1. Send news to users
-    - users will receive news from their inbox
-2. Customizable topics
-    - users can pick news topics they are interested in
-3. Variable email frequency
-    - users can pick a time and a frequency to receive the news
-4. Sort news by bias
-    - users can choose the bias of political news 
-5. Customizable news sources
-    - users can choose what sources they prefer
-6. Stores user emails
-    - backend will store emails and send news automatically
 
+1. Send news to users
+   - users will receive news from their inbox
+2. Customizable topics
+   - users can pick news topics they are interested in
+3. Variable email frequency
+   - users can pick a time and a frequency to receive the news
+4. Sort news by bias
+   - users can choose the bias of political news
+5. Customizable news sources
+   - users can choose what sources they prefer
+6. Stores user emails
+   - backend will store emails and send news automatically
 
 ## 4. Non-functional requirements
+
 - Reliability - 95% of users receive their news at the sending time
 - Compatibility - Users accessing both the  mobile app and web app receive the same information
 - Usability - Users won't have any trouble setting up accounts
@@ -58,17 +60,20 @@ Other news applications which provide similar functionality to the users. We wil
 
 
 ## 5. MVP
+
 **Features:**
+
 - Send news to users
 - Customizable news topics
 - Variable email frequency
 
 **Description:**
-	The MVP will be a smaller app that allows users to select news topics that interest them
+The MVP will be a smaller app that allows users to select news topics that interest them
 
-  
 ## 6. Use cases
+
 ### 6.1 Use case diagram
+
 ![Use Case Diagram](https://user-images.githubusercontent.com/71902810/193481228-f57c2553-d022-409c-8f0b-72eda95a5067.png)
 
 ### 6.2 Use Case Descriptions and interface Sketch
@@ -141,182 +146,221 @@ n/a
 
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 
-
 Jackson: Register email
-**1    	Brief Description**
+
+**1 Brief Description**
+
 The web users will be able to register their email
 
-**2    	Actor Brief Descriptions**
+**2 Actor Brief Descriptions**
 The users who use newstr-news in website
-2.1    	<Actor 1 Name>
-The Web user 
+2.1 <Actor 1 Name>
+The Web user
 
-**3    	Preconditions**
+**3 Preconditions**
 <pre-condition 1>
 They have navigated to the web page and started the signup process
 
-**4    	Basic Flow of Events**
-1. 	They start the account creation process
-2. 	Enter their email address
-3. 	
-**5    	Alternative Flows**
-5.1    	<alternate flow 1>
-1. They are not receiving emails, must check if they entered their email address
-2. 
-**6    	Subflows**
-6.1    	<subflow 1>
-1. 	<subflow 1, step 1>
-2. 	…
-3. 	<subflow 1, step n>
-**7    	Key Scenarios**
-7.1    	<scenario 1>
-1. The user is signing up
-2. 
-**8    	Post-conditions**
-8.1    	The users will have an account and be able to select other preferences
+**4 Basic Flow of Events**
 
-**9    	Special Requirements**
-		The user should have or set us a email account
-    
-    
-Zachary: Add topics to receive 
+1. They start the account creation process
+2. Enter their email address
+3. Server sees their request
+4. Database saves email and account information
 
-**1    	Brief Description**
+**5 Alternative Flows**
+5.1 <alternate flow 1>
+
+1.  They are not receiving emails,
+2.  must check if they entered their email address correctly
+
+**6 Subflows**
+6.1 <subflow 1>
+If the user would like to change there email?
+
+1.  user would log into account
+2.  navigate to the options menu
+3.  navigate to account information
+4.  update/change email
+5.  save changes
+
+**7 Key Scenarios**
+7.1 <scenario 1>
+
+1.  The user is signing up
+
+**8 Post-conditions**
+8.1 The users will have an account and be able to select other preferences
+
+**9 Special Requirements**
+The user should have or set us a email account
+
+![Interface 2 sketch](https://user-images.githubusercontent.com/72241308/193733237-cd9b075a-d909-418c-a710-77f54fcba845.JPG)
+
+Zachary: Add topics to receive
+
+**1 Brief Description**
 Users can choose what topics they receive from the news email.
 
-**2    	Actor Brief Descriptions**
+**2 Actor Brief Descriptions**
 Users who want to customize their news feed.
-2.1    	Actor 1
-The Web user 
+2.1 Actor 1
+The Web user
 
-**3    	Preconditions**
-	User has created an account with newster-news.
-  
-**4    	Basic Flow of Events**
+**3 Preconditions**
+User has created an account with newster-news.
+
+**4 Basic Flow of Events**
+
 1. Use case begins when user creates an account
-2. Users select multiple news categories that they are interested in.
-3. Use case ends
+2. The system logs the users email/username and password into the database
+3. The user then enters their messaging preferences into the system. (frequency of how often to receive their news articles, what time they receive it)
+4. The system saves the messaging preferences in the database
+5. The user then selects the topics they are interested in
+   5a. The user can select multiple topics or just one.
+6. The system will save the topics selected upon the user moving forward in account creation
+7. The system will conclude the account creation process
+8. Use case ends
 
-**5    	Alternative Flows**
-5.1    	<alternate flow 1>
+**5 Alternative Flows**
+5.1 <alternate flow 1>
+
 1. If the user already has an account and wishes to update their preferences:
-User selects the “Update your preferences” option on the website
-The use case resumes at step 2
+   User selects the “Update your preferences” option on the website
+   The use case resumes at step 2
 
-**6    	Subflows**
-6.1    	<subflow 1>
-1.  For each category they select, the categories will be added to the database 
-2. If the user does not select any categories, the user will receive general news
+**6 Subflows**
+6.1 <subflow 1>
+If the user already has an account and wishes to update their preferences:
 
-**7    	Key Scenarios**
-7.1    	<scenario 1>
+1. User selects the “Update your preferences” option on the website, underneath the profile tab
+2. The system brings the user to the same topic selection page as the account creation
+3. The user can then select any additional topics they want to see
+4. The system saves any additional topics to the database
+
+**7 Key Scenarios**
+7.1 <scenario 1>
+
 1. The users are waiting for the news articles
-2. The users receive the emergency news articles when appropriate
+2. The users will receive the email containing the topics they have selected at the time and the frequency they have chosen.
 
-**8    	Post-conditions**
-8.1    	The users will receive news articles from the categories they selected
+**8 Post-conditions**
+8.1 The users will receive news articles from the categories they selected
 
-**9    	Special Requirements**
-		All of the users should have a Newster-news account.
-    
+**9 Special Requirements**
+All of the users should have a Newster-news account.
+
 ![interface 3 sketch](https://user-images.githubusercontent.com/71902810/193481530-a32af29e-9dce-43ed-a019-96f3e3309d3d.png)
-
 
 William: Opt-in to emergency news
 
-**1    	Brief Description**
+**1 Brief Description**
 Users can choose to opt-in to important or emergency news.
 
-**2    	Actor Brief Descriptions**
+**2 Actor Brief Descriptions**
 The users who use newstr-news on the website
-2.1    	Actor 1
-The Web user 
+2.1 Actor 1
+The Web user
 
-**3    	Preconditions**
-	User has created an account with newster-news.
-  
-**4    	Basic Flow of Events**
+**3 Preconditions**
+User has created an account with newster-news.
+
+**4 Basic Flow of Events**
+
 1. Use case begins when user creates an account
 2. User selects a checkbox stating “Opt-in to emergency news” with a brief description
 3. Use case ends
 
-**5    	Alternative Flows**
-5.1    	<alternate flow 1>
+**5 Alternative Flows**
+5.1 <alternate flow 1>
+
 1. If the user already has an account and wishes to update their preferences:
-User selects the “Update your preferences” option on the website
-The use case resumes at step 2
+   User selects the “Update your preferences” option on the website
+   The use case resumes at step 2
 
-**6    	Subflows**
-6.1    	<subflow 1>
+**6 Subflows**
+6.1 <subflow 1>
+
 1.  If the user selects the checkbox, update their preferences accordingly in the database, and begin to send emergency news
-2. If the user does not select the checkbox, update their preferences accordingly and do not send emergency news
+2.  If the user does not select the checkbox, update their preferences accordingly and do not send emergency news
 
-**7    	Key Scenarios**
-7.1    	<scenario 1>
+**7 Key Scenarios**
+7.1 <scenario 1>
+
 1. The users are creating their account for the first time
-2. The users will select the category 
+2. The users will select the category
 
-**8    	Post-conditions**
-8.1    	The users will receive the emergency news urls by email.
+**8 Post-conditions**
+8.1 The users will receive the emergency news urls by email.
 
-**9    	Special Requirements**
-		All of the users should have a Newster-news account.
-    
+**9 Special Requirements**
+All of the users should have a Newster-news account.
+
 ![interface 4 sketch](https://user-images.githubusercontent.com/71902810/193481589-86d4c313-d32d-4dc0-b8b6-f840f6a75e86.png)
-
 
 Hyunsoo: Receive news emails
 
-**1    	Brief Description**
+**1 Brief Description**
 The web users will be able to receive news URL in emails
 
-**2    	Actor Brief Descriptions**
+**2 Actor Brief Descriptions**
 The users who use newstr-news in website
-2.1    	<Actor 1 Name>
-The Web user 
+2.1 <Actor 1 Name>
+The Web user
 
-**3    	Preconditions**
+**3 Preconditions**
 <pre-condition 1>
 They have signed up for the service and chosen their news categories.
 
-**4    	Basic Flow of Events**
-1. 	They start to receive emails with news URLs on them.
+**4 Basic Flow of Events**
 
-**5    	Alternative Flows**
-5.1    	<alternate flow 1>
+1. The system checks the time if it is the time to send email to user.
+2. The system checks the news topics that user wanted.
+3. The system request the news from bing API.
+4. The system gets the news from bing API.
+5. The system will send the email containing news.
+6. The users starts to receive emails with news URLs on them.
+
+**5 Alternative Flows**
+5.1 <alternate flow 1>
+
 1. They are not receiving emails, must check if they chose the news category and entered their email address to the service.
 
-**6    	Subflows**
-6.1    	<subflow 1>
-1. 	<subflow 1, step 1>
-2. 	…
-3. 	<subflow 1, step n>
+**6 Subflows**
+6.1 <subflow 1>
 
-**7    	Key Scenarios**
-7.1    	<scenario 1>
-1. The users are waiting for the news articles
-2. The email is delivered at the time, when the users chose.
+1.              <subflow 1, step 1>
+2.              …
+3.              <subflow 1, step n>
 
-**8    	Post-conditions**
-8.1    	The users will receive the news urls by email.
+**7 Key Scenarios**
+7.1 <scenario 1>
 
-**9    	Special Requirements**
-		All of the users should have a personal email account.
-    
+1. The users are waiting for the news articles.
+2. The users will receive the email containing the topics they have selected at the time and the frequency they have chosen.
+
+**8 Post-conditions**
+8.1 The users will receive the news urls by email.
+
+**9 Special Requirements**
+All of the users should have a personal email account.
+
 ![Interface 5 sketch](https://user-images.githubusercontent.com/71902810/193481654-50968452-e515-490b-9871-6924be1aadb5.png)
 
 ## 7. User Stories
 
 ### Hyunsoo Kim
+
 **User story 1:**
 “As a night shift worker, I want news delivered at night so that I can get updated news about what happened before my work starts.
 **Priority:** 1 **Estimated Hours:** 1
 
 **User story 2:**
-“As a big fan of football, I don’t want to go to a lot of news websites for the football news. So that I can get news in a shorter time. 
+“As a big fan of football, I don’t want to go to a lot of news websites for the football news. So that I can get news in a shorter time.
 **Priority:** 2 **Estimated Hours:** 1
 
 ### Jacob Olson:
+
 **User Story 1:**
 “As a person with niche interests, I want customizable news topics so that I can find more of what interests me”
 **Priority:** 1 **Estimated Hours:** 1
@@ -326,6 +370,7 @@ They have signed up for the service and chosen their news categories.
 **Priority:** 1 **Estimated Hours:** 1
 
 ### William Rogers:
+
 **User Story 1:**
 “As a huge NASA fan, I want to receive news relating to space exploration so that I can one day become an astronaut.”
 **Priority:** 1 **Estimated Hours:** 1
@@ -335,6 +380,7 @@ They have signed up for the service and chosen their news categories.
 **Priority:** 1 **Estimated Hours:** 1
 
 ### Zachary Parham
+
 **User Story 1:**
 “As an investor, I want to get business news delivery before market open, so I can make educated decisions in investing”
 **Priority:** 1 **Estimated hours:** 1
@@ -344,6 +390,7 @@ They have signed up for the service and chosen their news categories.
 **Priority:** 1 **Estimated hours:** 1
 
 ### Jackson Brittain
+
 **User Story 1:**
 “As a busy college student, I want easily accessible news, so I can spend less time browsing the internet”
 **Priority:** 1 **Estimated hours:** 1
@@ -355,5 +402,5 @@ They have signed up for the service and chosen their news categories.
 ## 8. Issue Tracker
 
 [Issue Tracker](https://github.com/TheFellaz/Newstr-News/issues)
-    
+
 ![User Story Issue Tracker](https://user-images.githubusercontent.com/71902810/193481108-33eb997e-9ed5-44e0-8f25-5b821a65de35.png)
