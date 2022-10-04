@@ -84,7 +84,7 @@ The users who are joining Newstr-News
 **2.1 	Actor 1 Name:**
 New user
 
-**3	Preconditions**
+**3	Preconditions:**
 
 3.1:
 The user is not already registered
@@ -98,46 +98,44 @@ The user has an email address to register with
 **4	Basic Flow of Events**
 
 	1.	User opens the app
-
+	
 	2.	User selects option to sign up
-
+	
 	3.	User enters their information
-
+	
 	4.	User confirms information and continues with sign up
+	
+	5.	System sends user information to server
+	
+	6.	Server records new user information
 
-	5.	System sends information to server
+**5	Alternative Flows**
 
-	6.	Server records user information
-
-**5	Alternative Flows:**
-
-5.1	Email already in use
+5.1:	Email already in use
 
 At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
 
 **6	Subflows**
 
-6.1	Step 4-5 subflow
+6.1:	Step 4-5 subflow
 
-	4.1 User confirms information
+4.1 User confirms information
 
-	4.2 App sends information to server
+4.2 App sends information to server
 
-	5.1 Server receives user information
+5.1 Server receives user information
 
-	5.2 Server records user information
+5.2 Server records user information
 
 **7	Key Scenarios**
 
-7.1:
+7.1: A new user is registering for the service
 
-A new user is registering for the service
-
-**8	Post Conditions**
+**8	Post Conditions:**
 
 The user is registered to the system and can access their profile and customize their settings.
 
-**9	Special Requirements**
+**9	Special Requirements:**
 
 n/a
 
