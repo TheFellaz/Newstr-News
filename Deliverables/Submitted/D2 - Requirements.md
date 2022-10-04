@@ -75,22 +75,24 @@ Other news applications which provide similar functionality to the users. We wil
 
 Jacob: Register new user
 
-**1	Brief Description**
+**1	Brief Description:**
 The user will register their account into the system.
 
-**2	Actor Brief Descriptions**
+**2	Actor Brief Descriptions:**
 The users who are joining Newstr-News
 
-**2.1 	Actor 1 Name**
+**2.1 	Actor 1 Name:**
 New user
 
 **3	Preconditions**
 
-3.1
+3.1:
 The user is not already registered
-3.2
+
+3.2:
 The user can connect to the system
-3.3
+
+3.3:
 The user has an email address to register with
 
 **4	Basic Flow of Events**
