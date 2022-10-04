@@ -141,25 +141,38 @@ The Web user
 They have navigated to the web page and started the signup process
 
 **4 Basic Flow of Events**
+1. They start the account creation process
+2. Enter their email address
+3. Server sees their request
+4. Database saves email and account information
 
-1.      They start the account creation process
-2.      Enter their email address
-3.  **5 Alternative Flows**
+**5 Alternative Flows**
     5.1 <alternate flow 1>
-4.  They are not receiving emails, must check if they entered their email address
-5.  **6 Subflows**
+    
+1.  They are not receiving emails,
+2.  must check if they entered their email address correctly
+
+**6 Subflows**
     6.1 <subflow 1>
-6.      <subflow 1, step 1>
-7.      …
-8.      <subflow 1, step n>
-    **7 Key Scenarios**
+    If the user would like to change there email?
+1.  user would log into account 
+2.  navigate to the options menu
+3.  navigate to account information
+4.  update/change email
+5.  save changes
+
+**7 Key Scenarios**
     7.1 <scenario 1>
-9.  The user is signing up
-10. **8 Post-conditions**
+1.  The user is signing up
+
+**8 Post-conditions**
     8.1 The users will have an account and be able to select other preferences
 
 **9 Special Requirements**
 The user should have or set us a email account
+
+![Interface 2 sketch](https://user-images.githubusercontent.com/72241308/193733237-cd9b075a-d909-418c-a710-77f54fcba845.JPG)
+
 
 Zachary: Add topics to receive
 
@@ -216,32 +229,49 @@ All of the users should have a Newster-news account.
 
 ![interface 3 sketch](https://user-images.githubusercontent.com/71902810/193481530-a32af29e-9dce-43ed-a019-96f3e3309d3d.png)
 
-William: 
+William: Opt-in to emergency news
 
-**Use Case**: Opt-in to emergency news
+**1 Brief Description**
+Users can choose to opt-in to important or emergency news.
 
-**Actor**: Web App User
+**2 Actor Brief Descriptions**
+The users who use newstr-news on the website
+2.1 Actor 1
+The Web user
 
-**Description**: Users can choose to opt-in to important or emergency news.
+**3 Preconditions**
+User has created an account with newster-news.
 
-**Preconditions**: User has created an account with newster-news.
-
-**Main Flow**:
+**4 Basic Flow of Events**
 
 1. Use case begins when user creates an account
 2. User selects a checkbox stating “Opt-in to emergency news” with a brief description
 3. Use case ends
 
-**Alternative Flow**:
+**5 Alternative Flows**
+5.1 <alternate flow 1>
 
 1. If the user already has an account and wishes to update their preferences:
    User selects the “Update your preferences” option on the website
    The use case resumes at step 2
 
-**Subflow**:
+**6 Subflows**
+6.1 <subflow 1>
 
 1.  If the user selects the checkbox, update their preferences accordingly in the database, and begin to send emergency news
 2.  If the user does not select the checkbox, update their preferences accordingly and do not send emergency news
+
+**7 Key Scenarios**
+7.1 <scenario 1>
+
+1. The users are creating their account for the first time
+2. The users will select the category
+
+**8 Post-conditions**
+8.1 The users will receive the emergency news urls by email.
+
+**9 Special Requirements**
+All of the users should have a Newster-news account.
 
 ![interface 4 sketch](https://user-images.githubusercontent.com/71902810/193481589-86d4c313-d32d-4dc0-b8b6-f840f6a75e86.png)
 
