@@ -96,18 +96,24 @@ The user can connect to the system
 The user has an email address to register with
 
 **4	Basic Flow of Events**
+
 	1.	User opens the app
+
 	2.	User selects option to sign up
+
 	3.	User enters their information
+
 	4.	User confirms information and continues with sign up
+
 	5.	System sends information to server
+
 	6.	Server records user information
 
 **5	Alternative Flows:**
 
 5.1	Email already in use
 
-	At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
+At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
 
 **6	Subflows**
 
@@ -123,7 +129,7 @@ The user has an email address to register with
 
 **7	Key Scenarios**
 
-7.1	<scenario 1>
+7.1:
 
 A new user is registering for the service
 
@@ -133,7 +139,7 @@ The user is registered to the system and can access their profile and customize 
 
 **9	Special Requirements**
 
-	n/a
+n/a
 
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 
