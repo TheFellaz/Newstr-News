@@ -128,7 +128,9 @@ n/a
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 
 Jackson: Register email
+
 **1 Brief Description**
+
 The web users will be able to register their email
 
 **2 Actor Brief Descriptions**
@@ -141,38 +143,40 @@ The Web user
 They have navigated to the web page and started the signup process
 
 **4 Basic Flow of Events**
+
 1. They start the account creation process
 2. Enter their email address
 3. Server sees their request
 4. Database saves email and account information
 
 **5 Alternative Flows**
-    5.1 <alternate flow 1>
-    
+5.1 <alternate flow 1>
+
 1.  They are not receiving emails,
 2.  must check if they entered their email address correctly
 
 **6 Subflows**
-    6.1 <subflow 1>
-    If the user would like to change there email?
-1.  user would log into account 
+6.1 <subflow 1>
+If the user would like to change there email?
+
+1.  user would log into account
 2.  navigate to the options menu
 3.  navigate to account information
 4.  update/change email
 5.  save changes
 
 **7 Key Scenarios**
-    7.1 <scenario 1>
+7.1 <scenario 1>
+
 1.  The user is signing up
 
 **8 Post-conditions**
-    8.1 The users will have an account and be able to select other preferences
+8.1 The users will have an account and be able to select other preferences
 
 **9 Special Requirements**
 The user should have or set us a email account
 
 ![Interface 2 sketch](https://user-images.githubusercontent.com/72241308/193733237-cd9b075a-d909-418c-a710-77f54fcba845.JPG)
-
 
 Zachary: Add topics to receive
 
@@ -306,9 +310,9 @@ They have signed up for the service and chosen their news categories.
 **6 Subflows**
 6.1 <subflow 1>
 
-1.      <subflow 1, step 1>
-2.      …
-3.      <subflow 1, step n>
+1.              <subflow 1, step 1>
+2.              …
+3.              <subflow 1, step n>
 
 **7 Key Scenarios**
 7.1 <scenario 1>
