@@ -216,49 +216,32 @@ All of the users should have a Newster-news account.
 
 ![interface 3 sketch](https://user-images.githubusercontent.com/71902810/193481530-a32af29e-9dce-43ed-a019-96f3e3309d3d.png)
 
-William: Opt-in to emergency news
+William: 
 
-**1 Brief Description**
-Users can choose to opt-in to important or emergency news.
+**Use Case**: Opt-in to emergency news
 
-**2 Actor Brief Descriptions**
-The users who use newstr-news on the website
-2.1 Actor 1
-The Web user
+**Actor**: Web App User
 
-**3 Preconditions**
-User has created an account with newster-news.
+**Description**: Users can choose to opt-in to important or emergency news.
 
-**4 Basic Flow of Events**
+**Preconditions**: User has created an account with newster-news.
+
+**Main Flow**:
 
 1. Use case begins when user creates an account
 2. User selects a checkbox stating “Opt-in to emergency news” with a brief description
 3. Use case ends
 
-**5 Alternative Flows**
-5.1 <alternate flow 1>
+**Alternative Flow**:
 
 1. If the user already has an account and wishes to update their preferences:
    User selects the “Update your preferences” option on the website
    The use case resumes at step 2
 
-**6 Subflows**
-6.1 <subflow 1>
+**Subflow**:
 
 1.  If the user selects the checkbox, update their preferences accordingly in the database, and begin to send emergency news
 2.  If the user does not select the checkbox, update their preferences accordingly and do not send emergency news
-
-**7 Key Scenarios**
-7.1 <scenario 1>
-
-1. The users are creating their account for the first time
-2. The users will select the category
-
-**8 Post-conditions**
-8.1 The users will receive the emergency news urls by email.
-
-**9 Special Requirements**
-All of the users should have a Newster-news account.
 
 ![interface 4 sketch](https://user-images.githubusercontent.com/71902810/193481589-86d4c313-d32d-4dc0-b8b6-f840f6a75e86.png)
 
