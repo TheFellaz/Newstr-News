@@ -8,6 +8,7 @@ public class Outbox {
     Outbox(HashMap<String, String> headers, String json) {
         relevantHeaders = headers;
         jsonResponse = json;
+
     }
 
 }
