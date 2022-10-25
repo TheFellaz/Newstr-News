@@ -129,3 +129,6 @@ newsterweb/.env.production.local
 newsterweb/npm-debug.log*
 newsterweb/yarn-debug.log*
 newsterweb/yarn-error.log*
+
+*.idea
+*.gradle
