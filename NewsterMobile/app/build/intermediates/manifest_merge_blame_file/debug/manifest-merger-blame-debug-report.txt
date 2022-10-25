@@ -1,0 +1,60 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.thefellaz.newstermobile"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="28" />
+9-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:4:5-67
+11-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:5:5-79
+12-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:5:22-76
+13    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+13-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:6:5-81
+13-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:6:22-78
+14    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+14-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:7:5-80
+14-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:7:22-77
+15
+16    <application
+16-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:9:5-23:19
+17        android:allowBackup="true"
+17-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:10:9-35
+18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+18-->[androidx.core:core:1.0.0] C:\Users\willi\.gradle\caches\transforms-2\files-2.1\51bd038869f1ae39159a0a8fbe7b2ffe\core-1.0.0\AndroidManifest.xml:22:18-86
+19        android:debuggable="true"
+20        android:icon="@mipmap/ic_launcher"
+20-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:11:9-43
+21        android:label="@string/app_name"
+21-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:12:9-41
+22        android:roundIcon="@mipmap/ic_launcher_round"
+22-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:13:9-54
+23        android:supportsRtl="true"
+23-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:14:9-35
+24        android:testOnly="true"
+25        android:theme="@style/AppTheme" >
+25-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:15:9-40
+26        <activity android:name="thefellaz.newsternews.in.webview.MainActivity" >
+26-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:16:9-22:20
+26-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:16:19-79
+27            <intent-filter>
+27-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:17:13-21:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:18:17-69
+28-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:18:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:20:17-77
+30-->C:\Users\willi\OneDrive\Documents\NAU\Junior 1\CS 386\Mobile Dev 2\Android-WebView-in-Kotlin-master\NewsterMobile\app\src\main\AndroidManifest.xml:20:27-74
+31            </intent-filter>
+32        </activity>
+33    </application>
+34
+35</manifest>
