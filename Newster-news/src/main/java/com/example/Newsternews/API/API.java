@@ -1,7 +1,7 @@
 package com.example.Newsternews.API;
 
 import com.example.Newsternews.Keys.Keys;
-import com.example.Newsternews.API.ArticleClass;
+import com.google.gson.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,10 +12,6 @@ import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 
 
 import java.io.*;
@@ -24,10 +20,6 @@ import java.io.*;
 @RequestMapping
 public class API
 {
-    //initialize class variables
-        //number of articles being received
-    static int COUNT = 10;
-
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -36,16 +28,13 @@ public class API
         return gson.toJson(json);
     }
 
-
     @GetMapping
     public static String SearchNews() throws IOException {
-        //initialize variables
-        String test;
 
         // construct the search request URL (in the form of URL + query string)
         //added count = 10 in url to control
-        URL url = new URL(Keys.ENPOINT + Keys.PATH + "?q=" +  URLEncoder.encode("Microsoft", "UTF-8")
-                + "&count=" + COUNT);
+        URL url = new URL(Keys.ENDPOINT + Keys.PATH + "?q=" +  URLEncoder.encode(Keys.SEARCHTERM, "UTF-8")
+                + "&count=" + Keys.COUNT);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", Keys.APIKEY);
 
@@ -71,23 +60,33 @@ public class API
     {
         //initialize variables
         ArticleClass workingNode = new ArticleClass();
-        Scanner scanner = new Scanner(APIResponse);
         String workingString = "";
         String name;
         String url;
         String description;
+        int resultNumber;
 
+        JsonElement jelement = new JsonParser().parse(APIResponse);
+        JsonObject jobject = jelement.getAsJsonObject();
+        JsonArray jarray = jobject.getAsJsonArray("value");
 
-        //parse through APIResponse, look for "value": [, this is the start of the articles
-        Gson g = new Gson();
-        ArticleClass test = g.fromJson(APIResponse, ArticleClass.class);
-        //loop through COUNT times
-            //once in, capture name, url, description in ArticleClass format
-        //System.out.print(test.name);
-        System.out.println(test.head);
-        return;
+        for(resultNumber = 0; resultNumber < Keys.COUNT; resultNumber++)
+        {
+            jobject = jarray.get(resultNumber).getAsJsonObject();
+            name = jobject.get("name").getAsString();
+            url = jobject.get("url").getAsString();
+            description = jobject.get("description").getAsString();
+
+            workingNode = ArticleClass.insert(workingNode, name, url, description);
+
+        }
+
+        /*
+        workingString = workingNode.head.toString();
+
+        System.out.println(workingString);
+        */
+
     }
-
-
 
 }
