@@ -11,4 +11,5 @@ public class Keys {
     public static String PATH = "/v7.0/news/search";
     public static String SEARCHTERM = "Microsoft";
 
+
 }
