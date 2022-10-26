@@ -1,6 +1,7 @@
 package com.example.Newsternews.API;
 
 import com.example.Newsternews.Keys.Keys;
+import com.example.Newsternews.API.ArticleClass;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,10 @@ import java.io.*;
 @RequestMapping
 public class API
 {
+    //initialize class variables
+        //number of articles being received
+    static int COUNT = 10;
+
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -34,8 +39,13 @@ public class API
 
     @GetMapping
     public static String SearchNews() throws IOException {
+        //initialize variables
+        String test;
+
         // construct the search request URL (in the form of URL + query string)
-        URL url = new URL(Keys.ENPOINT + Keys.PATH + "?q=" +  URLEncoder.encode("Microsoft", "UTF-8"));
+        //added count = 10 in url to control
+        URL url = new URL(Keys.ENPOINT + Keys.PATH + "?q=" +  URLEncoder.encode("Microsoft", "UTF-8")
+                + "&count=" + COUNT);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", Keys.APIKEY);
 
@@ -49,8 +59,34 @@ public class API
         stream.close();
         System.out.println("response: \n");
         System.out.println(prettify(results.jsonResponse));
-        return results.jsonResponse;
+
+        parseThroughAPIResponse(response);
+        //System.out.print(test);
+        return response;
 
     }
+
+    //@GetMapping
+    public static void parseThroughAPIResponse(String APIResponse)
+    {
+        //initialize variables
+        ArticleClass workingNode = new ArticleClass();
+        Scanner scanner = new Scanner(APIResponse);
+        String workingString = "";
+        String name;
+        String url;
+        String description;
+
+
+        //parse through APIResponse, look for "value": [, this is the start of the articles
+        Gson g = new Gson();
+        ArticleClass test = g.fromJson(APIResponse, ArticleClass.class);
+        //loop through COUNT times
+            //once in, capture name, url, description in ArticleClass format
+        //System.out.print(test.name);
+        System.out.println(test.head);
+        return;
+    }
+
 
 }
