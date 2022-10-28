@@ -18,13 +18,10 @@ function SignIn() {
         className="submitButton"
         data-testid="submitButton"
         onClick={() => {
-          let email = document.querySelector("input").value;
           let news_types = document.getElementById("news_types").value;
           axios.post("http://localhost:8080/signin", {
-            // email: email,
             news_types: news_types,
           });
-          alert("email : " + email + "\nnews_types: " + news_types);
         }}
       >
         Register now
