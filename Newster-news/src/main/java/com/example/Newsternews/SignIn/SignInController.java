@@ -19,10 +19,10 @@ class member {
 }
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
 public class SignInController {
-    @GetMapping("/signin")
+    @GetMapping ("/signin")
     public String getNews() {
+        System.out.println("Got Get Request");
         return "This should be news";
     }
 }
