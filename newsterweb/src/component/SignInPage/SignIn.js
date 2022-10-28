@@ -6,21 +6,21 @@ function SignIn() {
     <div>
       <h3>SignIn page</h3>
       {/* <input placeholder="your email"></input> */}
-      <select name="types" id="news_types">
+      {/* <select name="types" id="news_types">
         <option value="None">None</option>
         <option value="Sports">Sports</option>
         <option value="Politics">Politics</option>
         <option value="Economics">Economics</option>
         <option value="Business">Business</option>
-      </select>
+      </select> */}
 
       <button
         className="submitButton"
         data-testid="submitButton"
         onClick={() => {
-          let news_types = document.getElementById("news_types").value;
-          axios.post("http://localhost:8080/signin", {
-            news_types: news_types,
+          // let news_types = document.getElementById("news_types").value;
+          axios.get("http://localhost:8080/signin", {
+            // news_types: news_types,
           });
         }}
       >
