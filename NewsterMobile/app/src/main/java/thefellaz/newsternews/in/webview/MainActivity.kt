@@ -39,7 +39,7 @@ class MainActivity : Activity() {
     internal var mLoaded = false
 
     // set your custom url here
-    internal var URL = "http://www.newster-news.com/"
+    internal var URL = "www.newster-news.com"
 
     //for attach files
     private var mCameraPhotoPath: String? = null
