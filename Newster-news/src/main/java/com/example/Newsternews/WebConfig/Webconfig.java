@@ -12,7 +12,7 @@ public class Webconfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry){
         registry.addMapping("/**")
                 .allowedHeaders("Access-Control-Allow-Credentials")
-                .allowCredentials(true)
-                .allowedOrigins("http://localhost:3000");
+                .allowCredentials(true);
+//                .allowedOrigins("*");
     }
 }
