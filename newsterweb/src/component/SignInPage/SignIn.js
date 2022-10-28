@@ -20,12 +20,15 @@ function SignIn() {
         onClick={() => {
           // let email = document.querySelector("input").value;
           // let news_types = document.getElementById("news_types").value;
-          let news = axios.get("http://localhost:8080/signin", {
-            withCredentials: true,
-            // email: email,
-            // news_types: news_types,
-          });
-          console.log(news);
+          let news = axios
+            .get("http://localhost:8080/signin", {
+              withCredentials: true,
+              // email: email,
+              // news_types: news_types,
+            })
+            .then((res) => {
+              alert(res.data);
+            });
 
           // alert("email : " + email + "\nnews_types: " + news_types);
         }}

@@ -13,6 +13,6 @@ public class Webconfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedHeaders("Access-Control-Allow-Credentials")
                 .allowCredentials(true)
-                .allowedOrigins("http://newster-news.com:80");
+                .allowedOrigins("http://localhost:3000");
     }
 }
