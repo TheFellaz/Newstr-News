@@ -1,12 +1,13 @@
 import React from "react";
 import axios from "axios";
+axios.defaults.withCredentials = true;
 
 function SignIn() {
   return (
     <div>
       <h3>SignIn page</h3>
-      {/* <input placeholder="your email"></input> */}
-      {/* <select name="types" id="news_types">
+      {/* <input placeholder="your email"></input>
+      <select name="types" id="news_types">
         <option value="None">None</option>
         <option value="Sports">Sports</option>
         <option value="Politics">Politics</option>
@@ -16,15 +17,23 @@ function SignIn() {
 
       <button
         className="submitButton"
-        data-testid="submitButton"
         onClick={() => {
+          // let email = document.querySelector("input").value;
           // let news_types = document.getElementById("news_types").value;
-          axios.get("http://localhost:8080/signin", {
-            // news_types: news_types,
-          });
+          let news = axios
+            .get("http://localhost:8080/signin", {
+              withCredentials: true,
+              // email: email,
+              // news_types: news_types,
+            })
+            .then((res) => {
+              alert(res.data);
+            });
+
+          // alert("email : " + email + "\nnews_types: " + news_types);
         }}
       >
-        Register now
+        Get News
       </button>
     </div>
   );
