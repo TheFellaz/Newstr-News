@@ -23,7 +23,6 @@ class member {
 public class SignInController {
     @GetMapping ("/signin")
     public String getNews() {
-
         System.out.println("Got Get Request");
         return "This should be news";
     }
