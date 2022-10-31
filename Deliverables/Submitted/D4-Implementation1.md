@@ -28,7 +28,6 @@ https://github.com/TheFellaz/Newstr-News/pull/42
 https://github.com/TheFellaz/Newstr-News/pull/45
 
 Implemented by: Hyunsoo Kim
-https://user-images.githubusercontent.com/39149858/198938642-b4ba212b-7b5c-4e97-8cd5-467d23cc7a01.png
 Approved by: Jackson Britain, Jacob Olson
 
 Print screen:
