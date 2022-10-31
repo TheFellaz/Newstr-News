@@ -20,6 +20,8 @@ import java.io.*;
 @RequestMapping
 public class API
 {
+    public static ArticleClass prettyResponse;
+
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -49,14 +51,14 @@ public class API
         System.out.println("response: \n");
         System.out.println(prettify(results.jsonResponse));
 
-        parseThroughAPIResponse(response);
+        prettyResponse = parseThroughAPIResponse(response);
         //System.out.print(test);
         return response;
 
     }
 
     //@GetMapping
-    public static void parseThroughAPIResponse(String APIResponse)
+    public static ArticleClass parseThroughAPIResponse(String APIResponse)
     {
         //initialize variables
         ArticleClass workingNode = new ArticleClass();
@@ -70,7 +72,7 @@ public class API
         JsonObject jobject = jelement.getAsJsonObject();
         JsonArray jarray = jobject.getAsJsonArray("value");
 
-        for(resultNumber = 0; resultNumber < Keys.COUNT; resultNumber++)
+        for(resultNumber = 0; resultNumber < Keys.COUNT - 1; resultNumber++)
         {
             jobject = jarray.get(resultNumber).getAsJsonObject();
             name = jobject.get("name").getAsString();
@@ -81,11 +83,7 @@ public class API
 
         }
 
-        /*
-        workingString = workingNode.head.toString();
-
-        System.out.println(workingString);
-        */
+        return workingNode;
 
     }
 

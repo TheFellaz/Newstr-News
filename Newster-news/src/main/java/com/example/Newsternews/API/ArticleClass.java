@@ -1,9 +1,9 @@
 package com.example.Newsternews.API;
 
 public class ArticleClass {
-    linkedListClass head;
+    static linkedListClass head;
 
-    static class linkedListClass{
+    public static class linkedListClass{
         //information the API is producing
         String name;
         String url;
@@ -94,5 +94,8 @@ public class ArticleClass {
         return list;
     }
 
-
+    public static linkedListClass getHead()
+    {
+        return head;
+    }
 }
