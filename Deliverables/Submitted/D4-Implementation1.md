@@ -18,18 +18,6 @@ submitted pull requests. Only stable code should be included in the release. The
 
 ### Implementation 1
 
-Requirement: Receive Bing News API response and process it to be displayed
-
-Issue: https://github.com/TheFellaz/Newstr-News/issues/23 Pull request: https://github.com/TheFellaz/Newstr-News/pull/46 
-
-Implemented by: Zachary Parham, William Rogers
-
-Approved by: Jackson Brittain
-
-Print screen: N/A
-
-### Implementation 2
-
 Requirement: Users can get news 
 
 Issue: 
@@ -40,12 +28,15 @@ https://github.com/TheFellaz/Newstr-News/pull/42
 https://github.com/TheFellaz/Newstr-News/pull/45
 
 Implemented by: Hyunsoo Kim
-
+https://user-images.githubusercontent.com/39149858/198938642-b4ba212b-7b5c-4e97-8cd5-467d23cc7a01.png
 Approved by: Jackson Britain, Jacob Olson
 
-Print screen: 
+Print screen:
 
-### Implementation 3
+<img width="572" alt="image" src="https://user-images.githubusercontent.com/39149858/198938642-b4ba212b-7b5c-4e97-8cd5-467d23cc7a01.png">
+
+
+### Implementation 2
 
 Requirement: Receive Bing News API response and process it to be displayed
 
@@ -56,9 +47,12 @@ Implemented by: Zachary Parham, William Rogers
 
 Approved by: Jackson Brittain
 
-Print screen: 
+Print screen:
 
-### Implementation 4
+<img width="567" alt="image" src="https://user-images.githubusercontent.com/39149858/198938923-1bb6c973-89b1-4254-bb13-118de2b41161.png">
+
+
+### Implementation 3
 
 Requirement: Send news article to frontend from spring server.
 
@@ -69,7 +63,31 @@ Implemented by: Jacob Olson, Zachary Parham, Hyunsoo Kim
 
 Approved by: Hyunsoo Kim
 
-Print screen: N/A
+Print screen:
+<img width="564" alt="image" src="https://user-images.githubusercontent.com/39149858/198939063-d5d23430-3834-44b8-bdfa-0a477885bf4d.png">
+
+### Implementation 4
+
+Requirement: Returns JSON string
+Issue: https://github.com/TheFellaz/Newstr-News/issues/51
+Pull request: https://github.com/TheFellaz/Newstr-News/pull/53
+Implemented by: Jackson Brittain
+Approved by: Hyunsoo Kim
+Printscreen: 
+
+<img width="574" alt="image" src="https://user-images.githubusercontent.com/39149858/198939722-2082b819-fd71-4da3-b9c9-736836db2e72.png">
+
+
+### Implementation 5
+Requirement: Setup mobile app for Newster-News
+Issue: https://github.com/TheFellaz/Newstr-News/issues/30 
+
+Pull request: https://github.com/TheFellaz/Newstr-News/pull/38 
+
+Implemented by: William Rogers
+Approved by: Hyunsoo Kim 
+Print screen:
+<img width="362" alt="image" src="https://user-images.githubusercontent.com/39149858/198939225-e3a03c1d-b518-4c03-a8f9-e682e4fa359a.png">
 
 
 
@@ -90,6 +108,8 @@ Print screen: N/A
 [Tests](Newstr-News/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Tests.java)
 
 **Test Results**
+<img width="1278" alt="image" src="https://user-images.githubusercontent.com/39149858/198939790-9c018b60-5e6b-45b6-a970-c4b12fd58388.png">
+
 
 ## 4. Adopted technologies
 
@@ -127,7 +147,7 @@ For learning/training, technologies already known by the team were designated fo
 
 ## 6. Deployment
 
-**Provide a link for the system in production and describe how you are deploying your system. **
+**Provide a link for the system in production and describe how you are deploying your system.**
 
 We chose hostwind as our server because one of our team members has used it before. The backend server is implemented by Spring and is running in the server which is in the hostwinds. We uploaded the spring application to the server and ran it with gradle commands. Also, the frontend client server is implemented by React.  We made a build file of the frontend and served it using NGINX in the 80 port in the hostwinds server.
 
@@ -178,4 +198,5 @@ In the frontend team(Jackson, Hyunsoo, Jacob) we learned how to set up React and
 **Include a link to a video showing the system working.**
 
 [Mobile App](https://youtube.com/shorts/Qq530LLksnQ?feature=share)
+
 [Web App](https://youtu.be/TA_s2OkOAm4)
