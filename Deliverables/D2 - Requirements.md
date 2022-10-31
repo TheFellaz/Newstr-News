@@ -52,11 +52,12 @@ Other news applications which provide similar functionality to the users. We wil
 
 ## 4. Non-functional requirements
 
-Reliability - 95% of users receive their news at the sending time
-Compatibility - Users accessing both the mobile app and web app receive the same information
-Usability - Users won't have any trouble setting up accounts
-Portability - Users can view news from their phone
-Security - User information will be stored securely and will use security protocols during registration
+- Reliability - 95% of users receive their news at the sending time
+- Compatibility - Users accessing both the  mobile app and web app receive the same information
+- Usability - Users won't have any trouble setting up accounts
+- Portability - Users can view news from their phone
+- Security - User information will be stored securely and will use security protocols during registration
+
 
 ## 5. MVP
 
@@ -79,56 +80,76 @@ The MVP will be a smaller app that allows users to select news topics that inter
 
 Jacob: Register new user
 
-**1 Brief Description**
+**1	Brief Description:**
 The user will register their account into the system.
 
-**2 Actor Brief Descriptions**
+**2	Actor Brief Descriptions:**
 The users who are joining Newstr-News
 
-**2.1 Actor 1 Name**
+**2.1 	Actor 1 Name:**
 New user
 
-**3 Preconditions**
+**3	Preconditions:**
 
-3.1
+3.1:
 The user is not already registered
-3.2
+
+3.2:
 The user can connect to the system
-3.3
+
+3.3:
 The user has an email address to register with
 
-**4 Basic Flow of Events**
-1 User opens the app
-2 User selects option to sign up
-3 User enters their information
-4 User confirms information and continues with sign up
-5 System records new user information
+**4	Basic Flow of Events**
 
-**5 Alternative Flows**
-5.1 Email already in use
+	1.	User opens the app
+	
+	2.	User selects option to sign up
+	
+	3.	User enters their information
+	
+	4.	User confirms information and continues with sign up
+	
+	5.	System sends user information to server
+	
+	6.	Server records new user information
+
+**5	Alternative Flows**
+
+5.1:	Email already in use
+
 At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
 
-**6 Subflows**
-6.1 Step 4-5 subflow
+**6	Subflows**
+
+6.1:	Step 4-5 subflow
+
 4.1 User confirms information
+
 4.2 App sends information to server
+
 5.1 Server receives user information
+
 5.2 Server records user information
 
-**7 Key Scenarios**
-7.1 <scenario 1>
-A new user is registering for the service
+**7	Key Scenarios**
 
-**8 Post Conditions**
+7.1: A new user is registering for the service
+
+**8	Post Conditions:**
+
 The user is registered to the system and can access their profile and customize their settings.
 
-**9 Special Requirements**
+**9	Special Requirements:**
+
 n/a
 
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 
 Jackson: Register email
+
 **1 Brief Description**
+
 The web users will be able to register their email
 
 **2 Actor Brief Descriptions**
@@ -142,24 +163,39 @@ They have navigated to the web page and started the signup process
 
 **4 Basic Flow of Events**
 
-1.      They start the account creation process
-2.      Enter their email address
-3.  **5 Alternative Flows**
-    5.1 <alternate flow 1>
-4.  They are not receiving emails, must check if they entered their email address
-5.  **6 Subflows**
-    6.1 <subflow 1>
-6.      <subflow 1, step 1>
-7.      …
-8.      <subflow 1, step n>
-    **7 Key Scenarios**
-    7.1 <scenario 1>
-9.  The user is signing up
-10. **8 Post-conditions**
-    8.1 The users will have an account and be able to select other preferences
+1. They start the account creation process
+2. Enter their email address
+3. Server sees their request
+4. Database saves email and account information
+
+**5 Alternative Flows**
+5.1 <alternate flow 1>
+
+1.  They are not receiving emails,
+2.  must check if they entered their email address correctly
+
+**6 Subflows**
+6.1 <subflow 1>
+If the user would like to change there email?
+
+1.  user would log into account
+2.  navigate to the options menu
+3.  navigate to account information
+4.  update/change email
+5.  save changes
+
+**7 Key Scenarios**
+7.1 <scenario 1>
+
+1.  The user is signing up
+
+**8 Post-conditions**
+8.1 The users will have an account and be able to select other preferences
 
 **9 Special Requirements**
 The user should have or set us a email account
+
+![Interface 2 sketch](https://user-images.githubusercontent.com/72241308/193733237-cd9b075a-d909-418c-a710-77f54fcba845.JPG)
 
 Zachary: Add topics to receive
 
@@ -293,9 +329,9 @@ They have signed up for the service and chosen their news categories.
 **6 Subflows**
 6.1 <subflow 1>
 
-1.      <subflow 1, step 1>
-2.      …
-3.      <subflow 1, step n>
+1.              <subflow 1, step 1>
+2.              …
+3.              <subflow 1, step n>
 
 **7 Key Scenarios**
 7.1 <scenario 1>
