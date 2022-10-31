@@ -50,12 +50,12 @@ Other news applications which provide similar functionality to the users. We wil
 
 
 ## 4. Non-functional requirements
-Reliability - 95% of users receive their news at the sending time
-Compatibility - Users accessing both the  mobile app and web app receive the same information
-Usability - Users won't have any trouble setting up accounts
-Portability - Users can view news from their phone
-Security - User information will be stored securely and will use security protocols during registration
 
+- Reliability - 95% of users receive their news at the sending time
+- Compatibility - Users accessing both the  mobile app and web app receive the same information
+- Usability - Users won't have any trouble setting up accounts
+- Portability - Users can view news from their phone
+- Security - User information will be stored securely and will use security protocols during registration
 
 ## 5. MVP
 **Features:**
@@ -75,51 +75,70 @@ Security - User information will be stored securely and will use security protoc
 
 Jacob: Register new user
 
-**1	Brief Description**
+**1	Brief Description:**
 The user will register their account into the system.
 
-**2	Actor Brief Descriptions**
+**2	Actor Brief Descriptions:**
 The users who are joining Newstr-News
 
-**2.1 	Actor 1 Name**
+**2.1 	Actor 1 Name:**
 New user
 
-**3	Preconditions**
+**3	Preconditions:**
 
-3.1
+3.1:
 The user is not already registered
-3.2
+
+3.2:
 The user can connect to the system
-3.3
+
+3.3:
 The user has an email address to register with
 
 **4	Basic Flow of Events**
-	1	User opens the app
-	2	User selects option to sign up
-	3	User enters their information
-	4	User confirms information and continues with sign up
-	5	System records new user information
+
+	1.	User opens the app
+	
+	2.	User selects option to sign up
+	
+	3.	User enters their information
+	
+	4.	User confirms information and continues with sign up
+	
+	5.	System sends user information to server
+	
+	6.	Server records new user information
 
 **5	Alternative Flows**
-5.1	Email already in use
-	At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
+
+5.1:	Email already in use
+
+At step 4, if email is already in use, the app messages the user to use a different email, and the user is returned to step 3.
 
 **6	Subflows**
-6.1	Step 4-5 subflow
-	4.1 User confirms information
-	4.2 App sends information to server
-	5.1 Server receives user information
-	5.2 Server records user information
+
+6.1:	Step 4-5 subflow
+
+4.1 User confirms information
+
+4.2 App sends information to server
+
+5.1 Server receives user information
+
+5.2 Server records user information
 
 **7	Key Scenarios**
-7.1	<scenario 1>
-A new user is registering for the service
 
-**8	Post Conditions**
+7.1: A new user is registering for the service
+
+**8	Post Conditions:**
+
 The user is registered to the system and can access their profile and customize their settings.
 
-**9	Special Requirements**
-	n/a
+**9	Special Requirements:**
+
+n/a
+
 
 ![interface sketch 1](https://user-images.githubusercontent.com/71902810/193481318-4d8e3844-884b-4dc4-8cbb-de4cd0ff71f6.png)
 
