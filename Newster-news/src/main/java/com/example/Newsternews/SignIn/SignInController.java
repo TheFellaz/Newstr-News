@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.Newsternews.API.API;
+
 
 class member {
     public String topic;
@@ -22,7 +24,8 @@ class member {
 public class SignInController {
     @GetMapping ("/signin")
     public String getNews() {
-        System.out.println("Got Get Request");
-        return "This should be news";
+        // System.out.println("Got Get Request");
+        String newsResponse = SearchNews();
+        return newsResponse;
     }
 }

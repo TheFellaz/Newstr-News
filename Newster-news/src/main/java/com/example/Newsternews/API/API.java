@@ -49,7 +49,7 @@ public class API
         System.out.println("response: \n");
         System.out.println(prettify(results.jsonResponse));
 
-        parseThroughAPIResponse(response);
+        // parseThroughAPIResponse(response);
         //System.out.print(test);
         return response;
 
