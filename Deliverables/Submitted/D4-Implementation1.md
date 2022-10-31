@@ -178,3 +178,4 @@ In the frontend team(Jackson, Hyunsoo, Jacob) we learned how to set up React and
 **Include a link to a video showing the system working.**
 
 [Mobile App](https://youtube.com/shorts/Qq530LLksnQ?feature=share)
+[Web App](https://youtu.be/TA_s2OkOAm4)
