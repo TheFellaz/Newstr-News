@@ -27,7 +27,7 @@ function SignIn() {
               // news_types: news_types,
             })
             .then((res) => {
-              alert(res.data);
+              alert(JSON.stringify(res.data));
             });
 
           // alert("email : " + email + "\nnews_types: " + news_types);
