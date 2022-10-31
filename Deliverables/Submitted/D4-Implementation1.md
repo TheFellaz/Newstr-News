@@ -101,11 +101,13 @@ Print screen:
 
 **Link to your GitHub folder**
 
-[Github](Newstr-News/Newster-news/src/test/java/com/example/Newsternews/APITests)
+[Github](https://github.com/TheFellaz/Newstr-News/tree/server-test/Newster-news/src/test/java/com/example/Newsternews/APITests)
 
 **An example of a test case**
 
-[Tests](Newstr-News/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Tests.java)
+[Tests](https://github.com/TheFellaz/Newstr-News/blob/server-test/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Tests.java)
+<img width="448" alt="image" src="https://user-images.githubusercontent.com/39149858/198940850-e48fd7e1-b559-49b5-8529-a1e8d053d461.png">
+
 
 **Test Results**
 <img width="1278" alt="image" src="https://user-images.githubusercontent.com/39149858/198939790-9c018b60-5e6b-45b6-a970-c4b12fd58388.png">
