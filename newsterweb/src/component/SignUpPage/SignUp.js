@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-function SignIn() {
+function SignUp() {
   return (
     <div>
       <h3>Sign Up page</h3>
