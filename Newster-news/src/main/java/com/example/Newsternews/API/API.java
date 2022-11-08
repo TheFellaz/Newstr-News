@@ -20,7 +20,7 @@ import java.io.*;
 @RequestMapping
 public class API
 {
-    public static ArticleClass prettyResponse;
+    public static ArticleClass parsedResponse;
 
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -51,34 +51,46 @@ public class API
         System.out.println("response: \n");
         System.out.println(prettify(results.jsonResponse));
 
-        prettyResponse = parseThroughAPIResponse(response);
-        //System.out.print(test);
+        //Linked list is stored as parsedResponse
+        parsedResponse = parseThroughAPIResponse(response);
+
         return response;
 
     }
 
-    //@GetMapping
     public static ArticleClass parseThroughAPIResponse(String APIResponse)
     {
         //initialize variables
         ArticleClass workingNode = new ArticleClass();
-        String workingString = "";
-        String name;
-        String url;
-        String description;
+        String name, url, description;
         int resultNumber;
 
         JsonElement jelement = new JsonParser().parse(APIResponse);
         JsonObject jobject = jelement.getAsJsonObject();
         JsonArray jarray = jobject.getAsJsonArray("value");
 
-        for(resultNumber = 0; resultNumber < Keys.COUNT - 1; resultNumber++)
+        for(resultNumber = 0; resultNumber < Keys.COUNT; resultNumber++)
         {
-            jobject = jarray.get(resultNumber).getAsJsonObject();
+            try
+            {
+                //Get return for the first article
+                jobject = jarray.get(resultNumber).getAsJsonObject();
+            }
+
+            //Handles cases where the API does not return correct amount of articles
+            //TODO: Create better solution (Possibly limit of 8?)
+            catch(IndexOutOfBoundsException e)
+            {
+                System.out.println("WARN: API did not return correct amount of articles");
+                break;
+            }
+
+            //Parse the json
             name = jobject.get("name").getAsString();
             url = jobject.get("url").getAsString();
             description = jobject.get("description").getAsString();
 
+            //Store as linked list
             workingNode = ArticleClass.insert(workingNode, name, url, description);
 
         }

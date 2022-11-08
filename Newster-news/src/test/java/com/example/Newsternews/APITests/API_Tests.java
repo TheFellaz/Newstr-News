@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @RunWith(JUnit4.class)
@@ -17,7 +16,7 @@ public class API_Tests {
     public void getAPIReturn() throws Exception
     {
         String testString = API.SearchNews();
-        ArticleClass result = API.prettyResponse;
+        ArticleClass result = API.parsedResponse;
 
         String url = result.getHead().getUrl();
         String name = result.getHead().getName();
