@@ -98,4 +98,8 @@ public class ArticleClass {
     {
         return head;
     }
+
+    public static void setHead(linkedListClass newHead) {
+        head = newHead;
+    }
 }
