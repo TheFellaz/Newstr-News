@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 axios.defaults.withCredentials = true;
 
-function SignUp() {
+function SignUpPage() {
   return (
     <div>
       <h3>Sign Up page</h3>
@@ -40,4 +40,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpPage;
