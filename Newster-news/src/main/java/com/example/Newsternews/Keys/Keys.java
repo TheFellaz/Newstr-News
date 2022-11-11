@@ -6,7 +6,7 @@ public class Keys {
      * news API service
      **/
 
-    public static String APIKEY = "THISISNOTTHEACTUALAPIKEY";
+    public static String APIKEY = "THISISNOTTHEACTUALAPI-KEY";
 
     public static String ENDPOINT = "https://api.bing.microsoft.com/";
     public static String PATH = "/v7.0/news/search";
