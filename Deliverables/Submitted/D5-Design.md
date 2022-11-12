@@ -12,13 +12,19 @@ few API’s to fetch news articles, then send them by email to the user.
 
 ## 2. Architecture
 
+![d5-2](https://user-images.githubusercontent.com/35905481/201496561-e6ced83c-d85d-41f6-9182-48d0ea02eaa0.jpg)
+
 ---
 
 ## 3. Class Diagram
 
+![d5-3](https://user-images.githubusercontent.com/35905481/201496562-446a3bf8-2e81-4f63-a1ff-4047c1a52fea.jpg)
+
 ---
 
 ## 4. Sequence Diagram
+
+![d5-4](https://user-images.githubusercontent.com/35905481/201496563-4757c6be-73aa-46cf-a8e9-83360019939e.jpg)
 
 ### 1 Brief Description 
 
@@ -87,11 +93,15 @@ N/A
 
 ### Backend - Creational (Singleton)
 
+![d5-5](https://user-images.githubusercontent.com/35905481/201496564-fad7973c-344b-4509-9a80-94776caa19f5.jpg)
+
 API: https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/main/java/com/example/Newsternews/API/API.java
 
 Keys: https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/main/java/com/example/Newsternews/Keys/Keys.java
 
 ### Frontend - Behavioral (Template)
+
+![d5-6](https://user-images.githubusercontent.com/35905481/201496565-7421aef3-6f6f-4e32-8704-419220a6e1de.jpg)
 
 App: https://github.com/TheFellaz/Newstr-News/blob/main/newsterweb/src/App.js
 
