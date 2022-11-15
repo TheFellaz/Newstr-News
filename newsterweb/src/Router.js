@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import SignUpPage from "./component/SignUpPage/SignUpPage";
-import NotFoundPage from "./component/NotFound/NotFoundPage";
+import NotFoundPage from "./component/NotFoundPage/NotFoundPage";
 import LoginPage from "./component/LoginPage/LoginPage";
 import MainPage from "./component/MainPage/MainPage";
 import UserProfilePage from "./component/UserProfilePage/UserProfilePage";
