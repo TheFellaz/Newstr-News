@@ -8,7 +8,8 @@ import Footer from "./component/Footer/Footer";
 function App() {
   return (
     <div className="App">
-      <Layout header={<Header />} footer={<Footer />} page={<Router />} />
+      {/* <Layout header={<Header />} footer={<Footer />} page={<Router />} /> */}
+      <Router />
     </div>
   );
 }
