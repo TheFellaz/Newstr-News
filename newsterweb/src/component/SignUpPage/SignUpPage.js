@@ -7,7 +7,7 @@ function SignUpPage() {
   return (
     <div>
       <h3>Sign Up page</h3>
-      <input placeholder="Your username"></input>
+      <input id="usernameID" placeholder="Your username"></input>
       <input id="email" placeholder="Your email"></input>
       <input id="password" type="password" placeholder="Password"></input>
       <input
@@ -32,6 +32,7 @@ function SignUpPage() {
 
           //verify valid email address format
           let email = document.getElementById("email").value;
+          let usernameInput = document.getElementById("usernameID").value;
 
           if (verifyEmailFormat(email) == false) {
             alert("Please enter a valid email Address");
@@ -47,9 +48,18 @@ function SignUpPage() {
             })
             .then((res) => {
               alert(JSON.stringify(res.data));
-            });
+            });*/
 
-          // alert("email : " + email + "\nnews_types: " + news_types); */
+          alert(
+            "username: " +
+              usernameInput +
+              "\nemail: " +
+              email +
+              "\npassword: " +
+              passwordInput +
+              "\npasswordConfirm: " +
+              passwordComparison
+          );
         }}
       >
         Sign Up
