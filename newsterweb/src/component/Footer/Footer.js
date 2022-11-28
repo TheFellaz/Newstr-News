@@ -3,7 +3,9 @@ import React from "react";
 function Footer(props) {
   return (
     <div>
-      <h1>Footer</h1>
+      <p>This product was created by The Fellaz.</p>
+      <p>Version no. 0.1</p>
+      <a href="https://github.com/TheFellaz/Newstr-News">Github Link</a>
     </div>
   );
 }
