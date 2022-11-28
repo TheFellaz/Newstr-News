@@ -40,33 +40,31 @@ function UserProfilePage(props) {
 }
 
 function GenerateTopicCheckbox(topicName, topicIndex, userTopicList) {
-  {
-    if (topicIndex in userTopicList) {
-      return (
-        <div>
-          <input
-            id={topicName}
-            type="checkbox"
-            name={topicName}
-            value="true"
-            defaultChecked
-          ></input>
-          <label for={topicName}>{topicName}</label>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <input
-            id={topicName}
-            type="checkbox"
-            name={topicName}
-            value="true"
-          ></input>
-          <label for={topicName}>{topicName}</label>
-        </div>
-      );
-    }
+  if (topicIndex in userTopicList) {
+    return (
+      <div>
+        <input
+          id={topicName}
+          type="checkbox"
+          name={topicName}
+          value="true"
+          defaultChecked
+        ></input>
+        <label for={topicName}>{topicName}</label>
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <input
+          id={topicName}
+          type="checkbox"
+          name={topicName}
+          value="true"
+        ></input>
+        <label for={topicName}>{topicName}</label>
+      </div>
+    );
   }
 }
 
@@ -75,7 +73,7 @@ function GenerateFrequencyRadio(
   frequencyOptionName,
   frequencyOptionIndex
 ) {
-  if (frequencyOptionIndex == userFrequencySelection) {
+  if (frequencyOptionIndex === userFrequencySelection) {
     return (
       <div className="frequencyOption">
         <input
