@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
-import verifyEmailFormat from "../../utils/EmailUtil.js";
+import { SignUpBtn } from "../../utils/Buttons/Buttons.js";
+
 axios.defaults.withCredentials = true;
 
 function SignUpPage() {
@@ -16,54 +17,7 @@ function SignUpPage() {
         placeholder="Confirm password"
       ></input>
 
-      <button
-        className="submitButton"
-        onClick={() => {
-          //check if passwords match
-          let passwordInput = document.getElementById("password").value;
-          let passwordComparison =
-            document.getElementById("confirmPassword").value;
-          let compareVal = passwordInput.localeCompare(passwordComparison);
-
-          if (compareVal != 0) {
-            alert("The Password and Confirm Password Fields must match");
-            return 0;
-          }
-
-          //verify valid email address format
-          let email = document.getElementById("email").value;
-          let usernameInput = document.getElementById("usernameID").value;
-
-          if (verifyEmailFormat(email) == false) {
-            alert("Please enter a valid email Address");
-            return 0;
-          }
-
-          // let news_types = document.getElementById("news_types").value;
-          /*let signUpResponse = axios
-            .post("http://localhost:8080/signUp", {
-              withCredentials: true,
-              email: email,
-              password: passwordInput,
-            })
-            .then((res) => {
-              alert(JSON.stringify(res.data));
-            });*/
-
-          alert(
-            "username: " +
-              usernameInput +
-              "\nemail: " +
-              email +
-              "\npassword: " +
-              passwordInput +
-              "\npasswordConfirm: " +
-              passwordComparison
-          );
-        }}
-      >
-        Sign Up
-      </button>
+      <SignUpBtn />
     </div>
   );
 }
