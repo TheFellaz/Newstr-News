@@ -13,7 +13,7 @@ function Header(props) {
   return (
     <div>
       <Row>
-        <Col>
+        <Col className="fontClass">
           <Link to={`/`}>
             <BasicBtn handleHome={handleHome} btnName={"HOME"} />
           </Link>
@@ -23,13 +23,13 @@ function Header(props) {
         <Col></Col>
         <Col></Col>
         <Col></Col>
-        <Col>
+        <Col className="fontClass">
           <Link to={`/login`}>
             <BasicBtn handleHome={handleHome} btnName={"Login"} />
           </Link>
         </Col>
       </Row>
-      <h1>Newster News</h1>
+      <h1 className="fontClass">Newster News</h1>
     </div>
   );
 }
