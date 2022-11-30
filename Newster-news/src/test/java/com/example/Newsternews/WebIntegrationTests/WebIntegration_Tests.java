@@ -7,6 +7,7 @@ import com.example.Newsternews.Resources.token;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
+@RunWith(JUnit4.class)
 public class WebIntegration_Tests
 {
     @Test
