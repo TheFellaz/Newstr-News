@@ -15,11 +15,9 @@ function LoginPage(props) {
       pw: pw,
     };
 
-    let response = await axios.post(
-      process.env.REACT_APP_API_URL + "/login",
-      info,
-      { withCredentials: true }
-    );
+    let response = await axios.post("localhost:8080/login", info, {
+      withCredentials: true,
+    });
 
     let ret = response.data;
     if ("error" in ret) {
