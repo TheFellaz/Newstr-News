@@ -4,7 +4,6 @@ package com.example.Newsternews.APITests;
 import com.example.Newsternews.API.API;
 import com.example.Newsternews.API.ArticleClass;
 import com.example.Newsternews.Keys.Keys;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -28,7 +27,7 @@ public class API_Tests {
         String name = result.getHead().getName();
         String description = result.getHead().getDescription();
 
-        //Assert that the API returns a url, name, and description
+        //Assert that the API returns a url, name, and description and stores it in the linked list
         assertNotNull(url);
         assertNotNull(name);
         assertNotNull(description);
