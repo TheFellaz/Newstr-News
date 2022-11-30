@@ -26,6 +26,7 @@ function Router(props) {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/user" element={<UserProfilePage />} />
             <Route path="/user/:id" element={<UserProfilePage />} />
+            <Route path="/404notfound" element={<NotFoundPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Row>
