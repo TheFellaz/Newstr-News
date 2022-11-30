@@ -22,7 +22,7 @@ function SignUpBtn() {
 
         if (compareVal != 0) {
           alert("The Password and Confirm Password Fields must match");
-          return 0;
+          return -1;
         }
 
         //verify valid email address format
@@ -31,7 +31,7 @@ function SignUpBtn() {
 
         if (verifyEmailFormat(emailInput) == false) {
           alert("Please enter a valid email Address");
-          return 0;
+          return -2;
         }
 
         //create JSON object to send in request
