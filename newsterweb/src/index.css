@@ -13,12 +13,11 @@ code {
 }
 
 @font-face {
-  font-family: "Nerko_One";
-  src: url(./fonts/Nerko_One/NerkoOne-Regular.ttf);
+  font-family: "Roboto";
 }
 
 :root {
-  --font-Nerko-One: "Nerko_One";
+  --font-Nerko-One: "Sans Serif";
 }
 
 .fontClass {

@@ -5,8 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class token {
-    public static String createToken(String input)
-    {
+    public static String createToken(String input) {
         try {
             MessageDigest type = MessageDigest.getInstance("SHA-1");
 
@@ -19,9 +18,8 @@ public class token {
                 hashToken = "0" + hashToken;
             }
             return hashToken;
-        }
-
-        catch (NoSuchAlgorithmException e) {
+        } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         }
     }
+}

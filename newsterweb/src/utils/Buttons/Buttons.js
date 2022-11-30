@@ -43,21 +43,20 @@ function SignUpBtn() {
 
         //make Sign up HTTP request to backend
         let signUpResponse = axios
-          .post("http://localhost:8080/signUp", {
-            newUserInfo: userInfo,
+          .post("http://localhost:8080/signup", userInfo, {
+            withCredentials: true,
           })
-
           .then(() => {
             window.location.href = "/login";
           })
           .catch((error) => {
-            if (error.response.status === 409) {
+            if (error.response.status !== 200) {
               alert(
                 "This email is already in use. Please use a different one lmao"
               );
             }
           });
-        //console.log(JSON.stringify(userInfo));
+        console.log(JSON.stringify(userInfo));
       }}
     >
       Sign Up

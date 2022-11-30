@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { validate } from "react-email-validator";
+import { res, validate } from "react-email-validator";
 import "./LoginPage.css";
 
 function LoginPage(props) {
@@ -15,9 +15,11 @@ function LoginPage(props) {
       pw: pw,
     };
 
-    let response = await axios.post("localhost:8080/login", info, {
+    let response = axios.post("localhost:8080/login", info, {
       withCredentials: true,
     });
+
+    console.log(response);
 
     let ret = response.data;
     if ("error" in ret) {
