@@ -1,13 +1,30 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Nerko_One", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: Nerko_one, source-code-pro, Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+}
+
+@font-face {
+  font-family: "Nerko_One";
+  src: url(./fonts/Nerko_One/NerkoOne-Regular.ttf);
+}
+
+:root {
+  --font-Nerko-One: "Nerko_One";
+}
+
+.fontClass {
+  font-family: var(--font-Nerko-One);
+}
+
+div {
+  margin: 10px;
 }
