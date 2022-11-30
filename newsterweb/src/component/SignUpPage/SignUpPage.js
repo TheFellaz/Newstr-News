@@ -1,34 +1,23 @@
 import React from "react";
 import axios from "axios";
+import { SignUpBtn } from "../../utils/Buttons/Buttons.js";
+
 axios.defaults.withCredentials = true;
 
 function SignUpPage() {
   return (
     <div>
       <h3>Sign Up page</h3>
-      <input placeholder="your email"></input>
-      <input placeholder="Password"></input>
+      <input id="usernameID" placeholder="Your username"></input>
+      <input id="email" placeholder="Your email"></input>
+      <input id="password" type="password" placeholder="Password"></input>
+      <input
+        id="confirmPassword"
+        type="password"
+        placeholder="Confirm password"
+      ></input>
 
-      <button
-        className="submitButton"
-        onClick={() => {
-          // let email = document.querySelector("input").value;
-          // let news_types = document.getElementById("news_types").value;
-          let news = axios
-            .get("http://localhost:8080/signin", {
-              withCredentials: true,
-              // email: email,
-              // news_types: news_types,
-            })
-            .then((res) => {
-              alert(JSON.stringify(res.data));
-            });
-
-          // alert("email : " + email + "\nnews_types: " + news_types);
-        }}
-      >
-        Get News
-      </button>
+      <SignUpBtn />
     </div>
   );
 }
