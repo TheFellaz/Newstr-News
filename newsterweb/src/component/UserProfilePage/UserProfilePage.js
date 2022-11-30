@@ -1,42 +1,60 @@
 import React from "react";
+import axios from "axios";
 import { TOPICS } from "../../utils/TopicList";
 import "./UserProfilePage.css";
+import { useParams } from "react-router-dom";
 
 function UserProfilePage(props) {
-  let username = "sexy";
-  let userTopicsList = [0, 1, 2, 3, 4];
-  let frequencySelection = 1;
-  let email = "ayyyyyye lmao";
-  const frequencyOptions = [
-    "Morning",
-    "Morning and Evening",
-    "Morning, Noon, and Evening",
-  ];
-  return (
-    <div>
-      <div id="topLeftUserInfoID">
-        Welcome back, {username}. <br />
-        Your preferred email for news is currently {email}.
-      </div>
+  let userName = useParams().id;
 
-      <div id="topicListID">
-        {TOPICS.map((topicName, topicIndex) =>
-          GenerateTopicCheckbox(topicName, topicIndex, userTopicsList)
-        )}
-      </div>
+  if (userName === undefined) {
+    window.location.href = "/404NotFound";
+  } else {
+    //verify token and username
 
-      <fieldset id="frequencyOptionsID">
-        <legend>Select an Email Frequency</legend>
-        {frequencyOptions.map((frequencyOption, frequencyIndex) =>
-          GenerateFrequencyRadio(
-            frequencySelection,
-            frequencyOption,
-            frequencyIndex
-          )
-        )}
-      </fieldset>
-    </div>
-  );
+    let userToken = "foo";
+    let userInfoRequest = axios.post("http://localhost:8080/user", {
+      token: userToken,
+      userName: userName,
+    });
+
+    let userObject = JSON.parse(userInfoRequest.data);
+
+    let userTopicsList = userObject.userTopicsList;
+    let frequencySelection = userObject.frequencySelection;
+    let email = userObject.email;
+    const frequencyOptions = [
+      "Morning",
+      "Morning and Evening",
+      "Morning, Noon, and Evening",
+    ];
+
+    return (
+      <div>
+        <div id="topLeftUserInfoID">
+          Welcome back, {userName}. <br />
+          Your preferred email for news is currently {email}.
+        </div>
+
+        <div id="topicListID">
+          {TOPICS.map((topicName, topicIndex) =>
+            GenerateTopicCheckbox(topicName, topicIndex, userTopicsList)
+          )}
+        </div>
+
+        <fieldset id="frequencyOptionsID">
+          <legend>Select an Email Frequency</legend>
+          {frequencyOptions.map((frequencyOption, frequencyIndex) =>
+            GenerateFrequencyRadio(
+              frequencySelection,
+              frequencyOption,
+              frequencyIndex
+            )
+          )}
+        </fieldset>
+      </div>
+    );
+  }
 }
 
 function GenerateTopicCheckbox(topicName, topicIndex, userTopicList) {
