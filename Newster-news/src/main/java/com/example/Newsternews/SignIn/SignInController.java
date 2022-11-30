@@ -1,10 +1,17 @@
 package com.example.Newsternews.SignIn;
 
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.Newsternews.Resources.SignupUserData;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+//import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 
 class member {
@@ -19,11 +26,21 @@ class member {
 }
 
 @RestController
-@CrossOrigin(origins = "http://192.119.67.66:3000")
 public class SignInController {
-    @GetMapping ("/signin")
-    public String getNews() {
-        System.out.println("Got Get Request");
-        return "This should be news";
+    // endpoint for the controller
+    @PostMapping("/signup")
+    // function the retrun type should be ResponseEntity<String>
+    // ResponseEntity<String> is for the json string
+    // SignupUserData is the class to get Json data
+    public ResponseEntity<String> reply(@RequestBody SignupUserData userData) {
+        System.out.println(userData.getEmail());
+        System.out.println(userData.getPassword());
+        System.out.println(userData.getUsername());
+        // example json string
+        String jsonString = "{'element1':'value1','element2':{'id':0,'name':'testName'}}";
+        // make httpheaders
+        HttpHeaders headers = new HttpHeaders();
+        // return Json
+        return new ResponseEntity<>(jsonString, headers, HttpStatus.NOT_FOUND);
     }
 }
