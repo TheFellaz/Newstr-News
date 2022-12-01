@@ -17,7 +17,7 @@ import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/wawa")
 public class API
 {
     public static ArticleClass parsedResponse;
@@ -54,7 +54,7 @@ public class API
         //Linked list is stored as parsedResponse
         parsedResponse = parseThroughAPIResponse(response);
 
-        return response;
+        return prettify(results.jsonResponse);
 
     }
 
