@@ -2,9 +2,41 @@ import * as React from "react";
 import Button from "react-bootstrap/Button";
 import verifyEmailFormat from "../EmailUtil.js";
 import axios from "axios";
+import { useState } from "react";
 
 function BasicBtn({ btnName, handleBtn }) {
   return <Button onClick={handleBtn}>{btnName}</Button>;
+}
+
+function RegisterUserInfoBtn(token) {
+  const [checkedTopics, updateCheckedTopics] = useState(null);
+  return (
+    <Button
+      className="RegisterUserInfoBtn"
+      onClick={() => {
+        updateCheckedTopics(document.querySelectorAll(".topicOption[checked]"));
+        //get updated user data
+        let TopicList = document.querySelectorAll(".topicOption[checked]");
+        let newTopicList = [];
+        TopicList.forEach((topic) => {
+          if (topic.checked) {
+          }
+        });
+
+        let newFrequencySelection = document.querySelector(
+          ".frequencyOption[checked]"
+        );
+
+        console.log(checkedTopics);
+        console.log(newFrequencySelection);
+        console.log(token);
+
+        //format into object to send
+      }}
+    >
+      Save
+    </Button>
+  );
 }
 
 function SignUpBtn() {
@@ -20,7 +52,7 @@ function SignUpBtn() {
 
         let compareVal = passwordInput.localeCompare(passwordComparison);
 
-        if (compareVal != 0) {
+        if (compareVal !== 0) {
           alert("The Password and Confirm Password Fields must match");
           return -1;
         }
@@ -29,7 +61,7 @@ function SignUpBtn() {
         let emailInput = document.getElementById("email").value;
         let usernameInput = document.getElementById("usernameID").value;
 
-        if (verifyEmailFormat(emailInput) == false) {
+        if (verifyEmailFormat(emailInput) === false) {
           alert("Please enter a valid email Address");
           return -2;
         }
@@ -65,4 +97,4 @@ function SignUpBtn() {
   );
 }
 
-export { BasicBtn, SignUpBtn };
+export { BasicBtn, SignUpBtn, RegisterUserInfoBtn };
