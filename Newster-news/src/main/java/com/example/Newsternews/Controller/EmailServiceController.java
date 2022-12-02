@@ -26,36 +26,55 @@ public class EmailServiceController {
     }
 
 //    @PostMapping("/emailTesting")
-    //@Scheduled(cron = "0 0 8,12,18 * * ?")
-    @Scheduled(cron = "0 * * * * ?")
-    public ResponseEntity sendEmails() throws IOException, MessagingException {
-        String jsonResult = API.SearchNews(Keys.SEARCHTERM1);
-        ArticleClass search1Results = API.parsedResponse;
+    //@Scheduled(cron = "0 0 8,12,18 * * ?") //At 8am, 12am, and 6pm
+    @Scheduled(cron = "0 * * * * ?") //For testing every minute
+    public ResponseEntity sendEmails() throws IOException, MessagingException
+    {
+        EmailTemplate emailBody1, emailBody2, emailBody3, emailBody4, emailBody5, emailBody6, emailBody7, emailBody8,
+                emailBody9;
+        emailBody1 = getSearchResults(Keys.SEARCHTERM1);
+        //emailBody2 = getSearchResults(Keys.SEARCHTERM2);
+        //emailBody3 = getSearchResults(Keys.SEARCHTERM3);
+        //emailBody4 = getSearchResults(Keys.SEARCHTERM4);
+        //emailBody5 = getSearchResults(Keys.SEARCHTERM5);
+        //emailBody6 = getSearchResults(Keys.SEARCHTERM6);
+        //emailBody7 = getSearchResults(Keys.SEARCHTERM7);
+        //emailBody8 = getSearchResults(Keys.SEARCHTERM8);
+        //emailBody9 = getSearchResults(Keys.SEARCHTERM9);
 
-        EmailTemplate template = new EmailTemplate();
-        template.setName1(search1Results.getHead().getName());
-        template.setDescription1(search1Results.getHead().getDescription());
-        template.setUrl1(search1Results.getHead().getUrl());
-
-        search1Results.setHead(search1Results.getHead().getNextNode());
-
-        template.setName2(search1Results.getHead().getName());
-        template.setDescription2(search1Results.getHead().getDescription());
-        template.setUrl2(search1Results.getHead().getUrl());
-
-        search1Results.setHead(search1Results.getHead().getNextNode());
-
-        template.setName3(search1Results.getHead().getName());
-        template.setDescription3(search1Results.getHead().getDescription());
-        template.setUrl3(search1Results.getHead().getUrl());
-
-        sendEmail("wpr29@nau.edu", "Your news", template.getEmailBody());
+        sendEmail("wpr29@nau.edu", "Newster News - Check out the Latest News", emailBody1.getEmailBody());
 
         return ResponseEntity.ok("Emails have been sent.");
     }
 
-    public void sendEmail(String user, String subject, String body) throws MessagingException {
+    public void sendEmail(String user, String subject, String body) throws MessagingException
+    {
         this.emailSendingService.sendEmail(user, subject, body);
+    }
+
+    public EmailTemplate getSearchResults(String searchTerm) throws IOException
+    {
+        String jsonResult = API.SearchNews(searchTerm);
+        ArticleClass searchResults = API.parsedResponse;
+
+        EmailTemplate template = new EmailTemplate();
+        template.setName1(searchResults.getHead().getName());
+        template.setDescription1(searchResults.getHead().getDescription());
+        template.setUrl1(searchResults.getHead().getUrl());
+
+        searchResults.setHead(searchResults.getHead().getNextNode());
+
+        template.setName2(searchResults.getHead().getName());
+        template.setDescription2(searchResults.getHead().getDescription());
+        template.setUrl2(searchResults.getHead().getUrl());
+
+        searchResults.setHead(searchResults.getHead().getNextNode());
+
+        template.setName3(searchResults.getHead().getName());
+        template.setDescription3(searchResults.getHead().getDescription());
+        template.setUrl3(searchResults.getHead().getUrl());
+
+        return template;
     }
 
 }
