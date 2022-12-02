@@ -42,7 +42,7 @@ public class EmailServiceController {
         //emailBody8 = getSearchResults(Keys.SEARCHTERM8);
         //emailBody9 = getSearchResults(Keys.SEARCHTERM9);
 
-        sendEmail("wpr29@nau.edu", "Newster News - Check out the Latest News", emailBody1.getEmailBody());
+        sendEmail("userEmail@test.com", "Newster News - Check out the Latest News", emailBody1.getEmailBody());
 
         return ResponseEntity.ok("Emails have been sent.");
     }
