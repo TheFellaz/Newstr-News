@@ -24,18 +24,20 @@ public class EmailServiceController {
 
 //    @PostMapping("/emailTesting")
     @Scheduled(cron = "0 0 8,12,18 * * ?")
-    public ResponseEntity sendEmail() {
+    public ResponseEntity sendEmails() {
         String userAddr = "99waterk@naver.com";
         String subject = "sth";
         String body = "body";
         String test;
-        try {
-            test = API.SearchNews();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        this.emailSendingService.sendEmail(userAddr, subject, body);
 
-        return ResponseEntity.ok("email has been sent");
+
+
+        return ResponseEntity.ok("Emails have been sent.");
     }
+
+    public void sendEmail(String user, String subject, String body)
+    {
+        this.emailSendingService.sendEmail(user, subject, body);
+    }
+
 }

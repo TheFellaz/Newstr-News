@@ -20,7 +20,7 @@ public class API_Tests {
     @Test
     public void getAPIReturn() throws Exception
     {
-        String testString = API.SearchNews();
+        String testString = API.SearchNews(Keys.SEARCHTERM1);
         ArticleClass result = API.parsedResponse;
 
         String url = result.getHead().getUrl();
@@ -37,13 +37,14 @@ public class API_Tests {
     @Test
     public void assertCorrectQuery() throws Exception
     {
-        String testString = API.SearchNews();
+        String testString = API.SearchNews(Keys.SEARCHTERM1);
 
         JsonElement jelement = new JsonParser().parse(testString);
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();
 
-        assertEquals(testQuery, Keys.SEARCHTERM);
+        //TODO: ADD TEST FOR DIFFERENT SEARCHTERM POSSIBILITIES
+        assertEquals(testQuery, Keys.SEARCHTERM1);
 
     }
 

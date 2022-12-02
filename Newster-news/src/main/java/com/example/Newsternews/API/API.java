@@ -31,11 +31,11 @@ public class API
     }
 
     @GetMapping
-    public static String SearchNews() throws IOException {
+    public static String SearchNews(String searchTerm) throws IOException {
 
         // construct the search request URL (in the form of URL + query string)
         //added count = 10 in url to control
-        URL url = new URL(Keys.ENDPOINT + Keys.PATH + "?q=" +  URLEncoder.encode(Keys.SEARCHTERM, "UTF-8")
+        URL url = new URL(Keys.ENDPOINT + Keys.PATH + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8")
                 + "&count=" + Keys.COUNT);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
         connection.setRequestProperty("Ocp-Apim-Subscription-Key", Keys.APIKEY);
