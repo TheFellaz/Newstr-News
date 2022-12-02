@@ -28,7 +28,6 @@ public class UserRepositoryTest {
 ////                .build();
 //
         memoRepository.save(memo);
-        //news
 //        memoRepository.findAll();
     }
 
