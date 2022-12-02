@@ -23,7 +23,7 @@ public class EmailServiceController {
     }
 
 //    @PostMapping("/emailTesting")
-    @Scheduled(cron = "0/1 * * * * ? ")
+    @Scheduled(cron = "0 0 8,12,18 * * ?")
     public ResponseEntity sendEmail() {
         String userAddr = "99waterk@naver.com";
         String subject = "sth";

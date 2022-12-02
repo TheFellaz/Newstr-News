@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SingUpController {
+public class SignUpController {
     @PostMapping("/signup")
     public ResponseEntity<String> signUp(@RequestBody User userData){
         HttpHeaders headers = new HttpHeaders();

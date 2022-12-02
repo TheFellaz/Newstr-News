@@ -48,8 +48,6 @@ public class API
         Outbox results = new Outbox(new HashMap<String, String>(), response);
 
         stream.close();
-        System.out.println("response: \n");
-        System.out.println(prettify(results.jsonResponse));
 
         //Linked list is stored as parsedResponse
         parsedResponse = parseThroughAPIResponse(response);
