@@ -10,20 +10,32 @@ function LoginPage(props) {
       alert("Is not email");
       return;
     }
+    /*
+    private String userName;
+    private String email;
+    private String pw;
+    private int[] topics = null;
+    private int frequency = 0;
+    private String token = null;
+    */
     const info = {
       email: email,
       pw: pw,
+      // userName: null,
+      // topics: null,
+      // frequency: 0,
+      // token: null,
     };
 
-    let response = axios.post("localhost:8080/login", info, {
+    let response = await axios.post("http://localhost:8080/login", info, {
       withCredentials: true,
     });
 
     console.log(response);
 
     let ret = response.data;
-    if ("error" in ret) {
-      alert(`${ret.error}`);
+    if (response.status !== 200) {
+      alert(`${ret.status}`);
     } else {
       window.location.href = "/";
     }

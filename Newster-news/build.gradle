@@ -14,12 +14,14 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.3.4.RELEASE'
-    testImplementation 'junit:junit:4.13.1'
-//    runtimeOnly 'mysql:mysql-connector-java'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	implementation 'com.google.code.gson:gson:2.9.1'
-	implementation 'org.springframework.boot:spring-boot-starter-mail:2.5.5'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.0'
+	implementation 'au.com.dius.pact.provider:junit5spring:4.4.2'
+    implementation 'org.projectlombok:lombok:1.18.24'
+    runtimeOnly 'mysql:mysql-connector-java'
+	implementation 'com.google.code.gson:gson:2.10'
+	implementation 'org.springframework.boot:spring-boot-starter-mail:3.0.0'
+	testImplementation 'junit:junit:4.13.2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.0.0'
 }
 
 tasks.named('test') {
