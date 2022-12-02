@@ -5,6 +5,7 @@ import com.example.Newsternews.API.Outbox;
 import com.example.Newsternews.EmailService.EmailSendingService;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.EmailBody;
+import com.example.Newsternews.Resources.EmailTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,11 +31,25 @@ public class EmailServiceController {
     public ResponseEntity sendEmails() throws IOException, MessagingException {
         String jsonResult = API.SearchNews(Keys.SEARCHTERM1);
         ArticleClass search1Results = API.parsedResponse;
-        String search1body = search1Results.getHead().getName();
-        search1body += search1Results.getHead().getDescription();
-        search1body += search1Results.getHead().getUrl();
 
-        sendEmail("wpr29@nau.edu", "Your news", "<h1>THIS IS A TEST</h1>");
+        EmailTemplate template = new EmailTemplate();
+        template.setName1(search1Results.getHead().getName());
+        template.setDescription1(search1Results.getHead().getDescription());
+        template.setUrl1(search1Results.getHead().getUrl());
+
+        search1Results.setHead(search1Results.getHead().getNextNode());
+
+        template.setName2(search1Results.getHead().getName());
+        template.setDescription2(search1Results.getHead().getDescription());
+        template.setUrl2(search1Results.getHead().getUrl());
+
+        search1Results.setHead(search1Results.getHead().getNextNode());
+
+        template.setName3(search1Results.getHead().getName());
+        template.setDescription3(search1Results.getHead().getDescription());
+        template.setUrl3(search1Results.getHead().getUrl());
+
+        sendEmail("wpr29@nau.edu", "Your news", template.getEmailBody());
 
         return ResponseEntity.ok("Emails have been sent.");
     }

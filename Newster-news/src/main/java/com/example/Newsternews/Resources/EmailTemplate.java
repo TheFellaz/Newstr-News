@@ -14,6 +14,9 @@ public class EmailTemplate
     private String description3;
     private String url3;
 
+    private String emailBody = "<h1>Newster News</h1>" +
+            "<a>Thank you for subscribing to Newster News. View the latest articles below picked just for you!</a>";
+
     public String getName1() {
         return name1;
     }
@@ -86,5 +89,23 @@ public class EmailTemplate
         this.url3 = url3;
     }
 
+    public String getEmailBody() {
+        emailBody += "<h3>" + name1 + "</h3>";
+        emailBody += "<i>" + description1 + "</i>";
+        emailBody += "<p>" + url1 + "</p>";
 
+        emailBody += "<h3>" + name2 + "</h3>";
+        emailBody += "<i>" + description2 + "</i>";
+        emailBody += "<p>" + url2 + "</p>";
+
+        emailBody += "<h3>" + name3 + "</h3>";
+        emailBody += "<i>" + description3 + "</i>";
+        emailBody += "<p>" + url3 + "</p>";
+
+        return emailBody;
+    }
+
+    public void setEmailBody(String emailBody) {
+        this.emailBody = emailBody;
+    }
 }
