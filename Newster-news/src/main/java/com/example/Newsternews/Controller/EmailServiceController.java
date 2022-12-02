@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.Newsternews.API.API;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 
 @RestController
@@ -26,7 +27,7 @@ public class EmailServiceController {
 //    @PostMapping("/emailTesting")
     //@Scheduled(cron = "0 0 8,12,18 * * ?")
     @Scheduled(cron = "0 * * * * ?")
-    public ResponseEntity sendEmails() throws IOException {
+    public ResponseEntity sendEmails() throws IOException, MessagingException {
         String jsonResult = API.SearchNews(Keys.SEARCHTERM1);
         ArticleClass search1Results = API.parsedResponse;
         String search1body = search1Results.getHead().getName();
@@ -38,8 +39,7 @@ public class EmailServiceController {
         return ResponseEntity.ok("Emails have been sent.");
     }
 
-    public void sendEmail(String user, String subject, String body)
-    {
+    public void sendEmail(String user, String subject, String body) throws MessagingException {
         this.emailSendingService.sendEmail(user, subject, body);
     }
 
