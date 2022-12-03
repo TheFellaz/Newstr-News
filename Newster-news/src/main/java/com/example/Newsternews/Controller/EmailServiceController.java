@@ -35,15 +35,14 @@ public class EmailServiceController {
         emailBody1 = getSearchResults(Keys.SEARCHTERM1);
         emailBody2 = getSearchResults(Keys.SEARCHTERM2);
         emailBody3 = getSearchResults(Keys.SEARCHTERM3);
-        //emailBody4 = getSearchResults(Keys.SEARCHTERM4);
-        //emailBody5 = getSearchResults(Keys.SEARCHTERM5);
-        //emailBody6 = getSearchResults(Keys.SEARCHTERM6);
-        //emailBody7 = getSearchResults(Keys.SEARCHTERM7);
-        //emailBody8 = getSearchResults(Keys.SEARCHTERM8);
-        //emailBody9 = getSearchResults(Keys.SEARCHTERM9);
+        emailBody4 = getSearchResults(Keys.SEARCHTERM4);
+        emailBody5 = getSearchResults(Keys.SEARCHTERM5);
+        emailBody6 = getSearchResults(Keys.SEARCHTERM6);
+        emailBody7 = getSearchResults(Keys.SEARCHTERM7);
+        emailBody8 = getSearchResults(Keys.SEARCHTERM8);
+        emailBody9 = getSearchResults(Keys.SEARCHTERM9);
 
-        sendEmail("wpr29@nau.edu", "Newster News - Check out the Latest News", emailBody1.getEmailBody() +
-                emailBody2.getEmailBody() + emailBody3.getEmailBody());
+        sendEmail("wpr29@nau.edu", "Newster News - Check out the Latest News", emailBody1.getEmailBody() + emailBody4.getEmailBody());
 
         return ResponseEntity.ok("Emails have been sent.");
     }
