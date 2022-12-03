@@ -79,4 +79,11 @@ public class News {
     public void setNews_id(Long news_id) {
         this.news_id = news_id;
     }
+
+    public void insert(String name, String description, String url)
+    {
+        newsTitle = name;
+        desc = description;
+        newsUrl = url;
+    }
 }
