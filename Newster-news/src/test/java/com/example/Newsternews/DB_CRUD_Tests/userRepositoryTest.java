@@ -28,16 +28,6 @@ public class userRepositoryTest {
             userRepository.save(user);
         });
         System.out.println(userRepository.getClass().getName());
-        IntStream.rangeClosed(5,10).forEach(i -> {
-
-            String name = "name2"+i;
-            String email = "email"+i;
-            String pw = "pw2"+i;
-            User user = new User(name, email, pw);
-            // 저장한다
-            userRepository.save(user);
-        });
-        System.out.println(userRepository.getClass().getName());
     }
 
     @Test
@@ -57,10 +47,26 @@ public class userRepositoryTest {
 
     @Test
     public void testUpdate(){
-        User user = new User("Kim", "hk486@nau.edu", "pw", "[1,2,3]", 3, "token");
-        System.out.println("1-------------");
-        userRepository.save(user);
-        System.out.println("2-------------");
+        IntStream.rangeClosed(1,10).forEach(i -> {
+
+            String name = "name"+i;
+            String email = "email"+i;
+            String pw = "pw"+i;
+            User user = new User(name, email, pw);
+            // 저장한다
+            userRepository.save(user);
+        });
+        System.out.println(userRepository.getClass().getName());
+        IntStream.rangeClosed(5,10).forEach(i -> {
+
+            String name = "name2"+i;
+            String email = "email"+i;
+            String pw = "pw2"+i;
+            User user = new User(name, email, pw);
+            // 저장한다
+            userRepository.save(user);
+        });
+        System.out.println(userRepository.getClass().getName());
     }
 
 }
