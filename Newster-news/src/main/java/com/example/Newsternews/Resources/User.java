@@ -1,6 +1,7 @@
 package com.example.Newsternews.Resources;
 
 import lombok.*;
+import lombok.experimental.Tolerate;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.*;
@@ -9,16 +10,25 @@ import java.util.List;
 
 @ToString
 @Getter
-@Builder(toBuilder = true)
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder
+//@AllArgsConstructor
+//@NoArgsConstructor
 @Entity
 @Table(name = "USER_TB")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @Column(name="user_email", nullable = false)
+    private String email;
+
+    public User(String userName, String email, String pw, String topics, int frequency, String token) {
+        this.userName = userName;
+        this.email = email;
+        this.pw = pw;
+        this.topics = topics;
+        this.frequency = frequency;
+        this.token = token;
+    }
 
     public User(String userName, String email, String pw){
         this.userName = userName;
@@ -28,8 +38,6 @@ public class User {
     @Column(name="USER_NAME", nullable = false)
     private String userName;
 
-    @Column(name="USER_EMAIL", nullable = false)
-    private String email;
 
     @Column(name="USER_PASSWORD", nullable = false)
     private String pw;
@@ -43,20 +51,15 @@ public class User {
     @Column(name = "USER_TOKEN", nullable = true)
     private String token = null;
 
-    public Long getUserId() {
-        return userId;
-    }
+    public User() {
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
     }
 
     @Override
     public String toString() {
         return "User{" +
-                "userId=" + userId +
+                "email='" + email + '\'' +
                 ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
                 ", pw='" + pw + '\'' +
                 ", topics='" + topics + '\'' +
                 ", frequency=" + frequency +
