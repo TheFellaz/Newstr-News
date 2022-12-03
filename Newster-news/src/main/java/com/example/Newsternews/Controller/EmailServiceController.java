@@ -33,8 +33,8 @@ public class EmailServiceController {
         EmailTemplate emailBody1, emailBody2, emailBody3, emailBody4, emailBody5, emailBody6, emailBody7, emailBody8,
                 emailBody9;
         emailBody1 = getSearchResults(Keys.SEARCHTERM1);
-        //emailBody2 = getSearchResults(Keys.SEARCHTERM2);
-        //emailBody3 = getSearchResults(Keys.SEARCHTERM3);
+        emailBody2 = getSearchResults(Keys.SEARCHTERM2);
+        emailBody3 = getSearchResults(Keys.SEARCHTERM3);
         //emailBody4 = getSearchResults(Keys.SEARCHTERM4);
         //emailBody5 = getSearchResults(Keys.SEARCHTERM5);
         //emailBody6 = getSearchResults(Keys.SEARCHTERM6);
@@ -42,14 +42,15 @@ public class EmailServiceController {
         //emailBody8 = getSearchResults(Keys.SEARCHTERM8);
         //emailBody9 = getSearchResults(Keys.SEARCHTERM9);
 
-        sendEmail("userEmail@test.com", "Newster News - Check out the Latest News", emailBody1.getEmailBody());
+        sendEmail("wpr29@nau.edu", "Newster News - Check out the Latest News", emailBody1.getEmailBody() +
+                emailBody2.getEmailBody() + emailBody3.getEmailBody());
 
         return ResponseEntity.ok("Emails have been sent.");
     }
 
     public void sendEmail(String user, String subject, String body) throws MessagingException
     {
-        this.emailSendingService.sendEmail(user, subject, body);
+        this.emailSendingService.sendEmail(user, subject, Keys.EMAIL_HEADER + body);
     }
 
     public EmailTemplate getSearchResults(String searchTerm) throws IOException

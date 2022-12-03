@@ -13,6 +13,9 @@ public class Keys {
 
     public static String EMAIL = "newsterteam386@gmail.com";
 
+    public static String EMAIL_HEADER = "<h1>Newster News</h1>" +
+            "<a>Thank you for subscribing to Newster News. View the latest articles below picked just for you!</a>";
+
     public static String SEARCHTERM1 = "business";
     public static String SEARCHTERM2 = "entertainment_movieandtv";
     public static String SEARCHTERM3 = "entertainment_music";
