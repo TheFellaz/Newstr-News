@@ -91,4 +91,14 @@ public class News {
     public void setNews_id(Long news_id) {
         this.news_id = news_id;
     }
+
+    public void insert(String title, String description, String url)
+    {
+        setNewsTitle(title);
+        setDesc(description);
+        setNewsUrl(url);
+//        newsTitle = title;
+//        desc = description;
+//        newsUrl = url;
+    }
 }

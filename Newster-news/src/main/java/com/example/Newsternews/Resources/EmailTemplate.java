@@ -14,8 +14,7 @@ public class EmailTemplate
     private String description3;
     private String url3;
 
-    private String emailBody = "<h1>Newster News</h1>" +
-            "<a>Thank you for subscribing to Newster News. View the latest articles below picked just for you!</a>";
+    private String emailBody;
 
     public String getName1() {
         return name1;
@@ -90,7 +89,7 @@ public class EmailTemplate
     }
 
     public String getEmailBody() {
-        emailBody += "<h3>" + name1 + "</h3>";
+        emailBody = "<h3>" + name1 + "</h3>";
         emailBody += "<i>" + description1 + "</i>";
         emailBody += "<p>" + url1 + "</p>";
 

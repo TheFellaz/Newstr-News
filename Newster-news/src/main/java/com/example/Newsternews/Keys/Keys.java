@@ -13,15 +13,18 @@ public class Keys {
 
     public static String EMAIL = "newsterteam386@gmail.com";
 
-    public static String SEARCHTERM1 = "business";
-    public static String SEARCHTERM2 = "entertainment_movieandtv";
-    public static String SEARCHTERM3 = "entertainment_music";
-    public static String SEARCHTERM4 = "politics";
-    public static String SEARCHTERM5 = "scienceandtechnology";
-    public static String SEARCHTERM6 = "sports_NBA";
-    public static String SEARCHTERM7 = "sports_NFL";
-    public static String SEARCHTERM8 = "us";
-    public static String SEARCHTERM9 = "world";
+    public static String EMAIL_HEADER = "<h1>Newster News</h1>" +
+            "<a>Thank you for subscribing to Newster News. View the latest articles below picked just for you!</a>";
+
+    public static String SEARCHTERM1 = "Business";
+    public static String SEARCHTERM2 = "Entertainment_MovieAndTV";
+    public static String SEARCHTERM3 = "Entertainment_Music";
+    public static String SEARCHTERM4 = "Politics";
+    public static String SEARCHTERM5 = "ScienceAndTechnology";
+    public static String SEARCHTERM6 = "Sports_NBA";
+    public static String SEARCHTERM7 = "Sports_NFL";
+    public static String SEARCHTERM8 = "US";
+    public static String SEARCHTERM9 = "World";
 
     //Number of Articles to return
     public static int COUNT = 10;

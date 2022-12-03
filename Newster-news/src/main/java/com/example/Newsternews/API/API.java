@@ -1,6 +1,7 @@
 package com.example.Newsternews.API;
 
 import com.example.Newsternews.Keys.Keys;
+import com.example.Newsternews.Resources.News;
 import com.google.gson.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Scanner;
 import javax.net.ssl.HttpsURLConnection;
 
@@ -20,8 +22,6 @@ import java.io.*;
 @RequestMapping("/wawa")
 public class API
 {
-    public static ArticleClass parsedResponse;
-
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -31,7 +31,7 @@ public class API
     }
 
     @GetMapping
-    public static String SearchNews(String searchTerm) throws IOException {
+    public static LinkedList<News> SearchNews(String searchTerm) throws IOException {
 
         // construct the search request URL (in the form of URL + query string)
         //added count = 10 in url to control
@@ -50,16 +50,17 @@ public class API
         stream.close();
 
         //Linked list is stored as parsedResponse
-        parsedResponse = parseThroughAPIResponse(response);
+        LinkedList<News> articles = parseThroughAPIResponse(response);
 
-        return prettify(results.jsonResponse);
+        return articles;
 
     }
 
-    public static ArticleClass parseThroughAPIResponse(String APIResponse)
+    public static LinkedList<News> parseThroughAPIResponse(String APIResponse)
     {
         //initialize variables
-        ArticleClass workingNode = new ArticleClass();
+        LinkedList<News> articles = new LinkedList<News>();
+        News newsArticle;
         String name, url, description;
         int resultNumber;
 
@@ -88,12 +89,13 @@ public class API
             url = jobject.get("url").getAsString();
             description = jobject.get("description").getAsString();
 
-            //Store as linked list
-            workingNode = ArticleClass.insert(workingNode, name, url, description);
+            newsArticle = new News();
+            newsArticle.insert(name, url, description);
+            articles.add(newsArticle);
 
         }
 
-        return workingNode;
+        return articles;
 
     }
 
