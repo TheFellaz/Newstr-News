@@ -7,11 +7,23 @@ import javax.persistence.*;
 @ToString
 @Getter
 @Builder(toBuilder = true)
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
-@Table(name = "NEWS_TB")
+@Table(name = "news_tb")
 public class News {
+
+    public News(){
+
+    }
+
+    public News(String newsTitle, String date, String newsUrl, int topic, String desc) {
+        this.newsTitle = newsTitle;
+        this.date = date;
+        this.newsUrl = newsUrl;
+        this.topic = topic;
+        this.desc = desc;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "news_id", nullable = false)
