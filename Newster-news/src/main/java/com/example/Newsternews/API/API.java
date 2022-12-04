@@ -8,20 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.net.ssl.HttpsURLConnection;
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
-import javax.net.ssl.HttpsURLConnection;
-
-
-import java.io.*;
 
 @RestController
 @RequestMapping("/wawa")
@@ -31,6 +27,7 @@ public class API
     private static String JSONResponse;
 
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
+    @SuppressWarnings("deprecation")
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
         JsonObject json = parser.parse(json_text).getAsJsonObject();
@@ -67,6 +64,7 @@ public class API
 
     }
 
+    @SuppressWarnings("deprecation")
     public static LinkedList<News> parseThroughAPIResponse(String APIResponse, String searchTerm)
     {
         //initialize variables

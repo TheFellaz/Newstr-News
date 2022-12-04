@@ -2,9 +2,7 @@ package com.example.Newsternews.APITests;
 
 
 import com.example.Newsternews.API.API;
-import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
-//import org.junit.Test;
 import com.example.Newsternews.Resources.Topic;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -44,6 +42,7 @@ public class API_Tests {
 
         String JSONResult = API.getJSON();
 
+        @SuppressWarnings("deprecation")
         JsonElement jelement = new JsonParser().parse(JSONResult);
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();

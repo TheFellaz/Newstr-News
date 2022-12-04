@@ -11,14 +11,10 @@ import com.example.Newsternews.userRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.Newsternews.API.API;
 
 import javax.mail.MessagingException;
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -109,7 +105,7 @@ public class EmailServiceController {
         System.out.println("Mail is Sent");
     }
 
-    public EmailTemplate getSearchResults(String searchTerm) throws IOException
+    public EmailTemplate getSearchResults(String searchTerm)
     {
         int topic = Topic.getSearchTermValue(searchTerm);
 

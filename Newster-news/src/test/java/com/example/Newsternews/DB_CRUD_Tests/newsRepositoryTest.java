@@ -1,23 +1,18 @@
 package com.example.Newsternews.DB_CRUD_Tests;
 
 import com.example.Newsternews.API.API;
-import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
 import com.example.Newsternews.Resources.Topic;
-import com.example.Newsternews.Resources.User;
 import com.example.Newsternews.newsRepository.NewsRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.core.AutoConfigureCache;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.io.IOException;
 import java.time.LocalTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 @SpringBootTest
 public class newsRepositoryTest {
