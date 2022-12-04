@@ -40,7 +40,7 @@ public class EmailServiceController {
     }
 
     @GetMapping("/emailTesting")
-    //@Scheduled(cron = "0 0 8,12,18 * * ?") //At 8am, 12am, and 6pm
+    @Scheduled(cron = "0 0 8,12,18 * * ?") //At 8am, 12am, and 6pm
 //    @Scheduled(cron = "0 * * * * ?") //For testing every minute
     public ResponseEntity sendEmails() throws IOException, MessagingException, InterruptedException {
 //        EmailTemplate emailBody = getSearchResults()
@@ -62,9 +62,21 @@ public class EmailServiceController {
             }
 
             LinkedList<EmailTemplate> emailTemplatList = new LinkedList<>();
+            //Testing
+            for (int j = 0; j < topicIntList.size(); j++) {
+                String searchTerm = Keys.SearchTermList[topicIntList.get(j)-1];
+                emailTemplatList.add(getSearchResults(searchTerm));
+                Thread.sleep(5000);
+            }
+            String body1 = "";
+            for (int j = 0; j < emailTemplatList.size(); j++) {
+                body1 += emailTemplatList.get(j).getEmailBody();
+            }
+            sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body1);
+
             if(hour == 8){
                 for (int j = 0; j < topicIntList.size(); j++) {
-                    String searchTerm = Keys.SearchTermList[topicIntList.get(j)];
+                    String searchTerm = Keys.SearchTermList[topicIntList.get(j)-1];
                     emailTemplatList.add(getSearchResults(searchTerm));
                     Thread.sleep(5000);
                 }
@@ -72,13 +84,12 @@ public class EmailServiceController {
                 for (int j = 0; j < emailTemplatList.size(); j++) {
                     body += emailTemplatList.get(j).getEmailBody();
                 }
-                for (int j = 0; j < topicIntList.size(); j++) {
-                    sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
-                }
-            }else if(hour == 19){
+                sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
+
+            }else if(hour == 18){
                 if(frequency != 1){
                     for (int j = 0; j < topicIntList.size(); j++) {
-                        String searchTerm = Keys.SearchTermList[topicIntList.get(j)];
+                        String searchTerm = Keys.SearchTermList[topicIntList.get(j)-1];
                         emailTemplatList.add(getSearchResults(searchTerm));
                         Thread.sleep(5000);
                     }
@@ -86,14 +97,12 @@ public class EmailServiceController {
                     for (int j = 0; j < emailTemplatList.size(); j++) {
                         body += emailTemplatList.get(j).getEmailBody();
                     }
-                    for (int j = 0; j < topicIntList.size(); j++) {
-                        sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
-                    }
+                    sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
                 }
-            }else{ //hour == 12
+            }else if(hour == 12){ //hour == 12
                 if(frequency == 3){
                     for (int j = 0; j < topicIntList.size(); j++) {
-                        String searchTerm = Keys.SearchTermList[topicIntList.get(j)];
+                        String searchTerm = Keys.SearchTermList[topicIntList.get(j)-1];
                         emailTemplatList.add(getSearchResults(searchTerm));
                         Thread.sleep(5000);
                     }
@@ -101,9 +110,7 @@ public class EmailServiceController {
                     for (int j = 0; j < emailTemplatList.size(); j++) {
                         body += emailTemplatList.get(j).getEmailBody();
                     }
-                    for (int j = 0; j < topicIntList.size(); j++) {
-                        sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
-                    }
+                    sendEmail(user.getEmail(), "Newster News - Check out the Latest News", body);
                 }
             }
         }
@@ -131,6 +138,7 @@ public class EmailServiceController {
     public void sendEmail(String emaillAddress, String subject, String body) throws MessagingException
     {
         this.emailSendingService.sendEmail(emaillAddress, subject, Keys.EMAIL_HEADER + body);
+        System.out.println("Mail is Sent");
     }
 
     public EmailTemplate getSearchResults(String searchTerm) throws IOException
