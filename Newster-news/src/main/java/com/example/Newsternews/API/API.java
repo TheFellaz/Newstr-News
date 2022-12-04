@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -50,19 +54,40 @@ public class API
         stream.close();
 
         //Linked list is stored as parsedResponse
-        LinkedList<News> articles = parseThroughAPIResponse(response);
+        LinkedList<News> articles = parseThroughAPIResponse(response, searchTerm);
 
         return articles;
 
     }
 
-    public static LinkedList<News> parseThroughAPIResponse(String APIResponse)
+    public static LinkedList<News> parseThroughAPIResponse(String APIResponse, String searchTerm)
     {
         //initialize variables
         LinkedList<News> articles = new LinkedList<News>();
         News newsArticle;
         String name, url, description;
         int resultNumber;
+        int topic;
+
+        if (searchTerm.equals("Business")){
+            topic = 1;
+        }else if (searchTerm.equals("Entertainment_MovieAndTV")){
+            topic = 2;
+        }else if (searchTerm.equals("Entertainment_Music")){
+            topic = 3;
+        }else if (searchTerm.equals("Politics")){
+            topic = 4;
+        }else if (searchTerm.equals("ScienceAndTechnology")){
+            topic = 5;
+        }else if (searchTerm.equals("Sports_NBA")){
+            topic = 6;
+        }else if (searchTerm.equals("Sports_NFL")){
+            topic = 7;
+        }else if (searchTerm.equals("US")){
+            topic = 8;
+        }else{
+            topic = 9;
+        }
 
         JsonElement jelement = new JsonParser().parse(APIResponse);
         JsonObject jobject = jelement.getAsJsonObject();
@@ -87,12 +112,11 @@ public class API
             //Parse the json
             name = jobject.get("name").getAsString();
             url = jobject.get("url").getAsString();
-            description = jobject.get("description").getAsString();
-
-            newsArticle = new News();
-            newsArticle.insert(name, url, description);
+            description = jobject.get("description").getAsString().substring(0, 100) + "...";
+            LocalTime ArizonaNow = LocalTime.now(ZoneId.of("America/Phoenix"));
+            String Date = ArizonaNow.toString();
+            newsArticle = new News(name, Date, url, topic, description);
             articles.add(newsArticle);
-
         }
 
         return articles;
