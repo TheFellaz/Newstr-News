@@ -4,7 +4,8 @@ package com.example.Newsternews.APITests;
 import com.example.Newsternews.API.API;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
@@ -37,11 +38,9 @@ public class API_Tests {
     {
         /*
         String testString = API.SearchNews(Keys.SEARCHTERM1);
-
         JsonElement jelement = new JsonParser().parse(testString);
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();
-
         //TODO: ADD TEST FOR DIFFERENT SEARCHTERM POSSIBILITIES
         assertEquals(testQuery, Keys.SEARCHTERM1);
         */

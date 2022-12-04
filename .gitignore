@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/react,macos,windows,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,macos,windows,java
 
+Newster-news/build
+Newster-news/resources/application.properties
 ### Java ###
 # Compiled class file
 *.class

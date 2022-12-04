@@ -1,7 +1,6 @@
-package com.example.Newsternews.SignUpController;
+package com.example.Newsternews.getUserController;
 
 import com.example.Newsternews.Resources.User;
-import com.example.Newsternews.Resources.token;
 import com.example.Newsternews.userRepository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -12,23 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class SignUpController {
+public class getUserController {
 
     @Autowired
     UserRepository userRepository;
 
-    @PostMapping("/signup")
-    public ResponseEntity<String> signUp(@RequestBody User userData){
+    @PostMapping("/userInfo")
+    public ResponseEntity<String> getUser(@RequestBody User userData){
+        User user = userRepository.findByToken(userData.getToken());
         HttpHeaders headers = new HttpHeaders();
-        String responseString = "";
-        token TokenCreator = new token();
-        String newToken = TokenCreator.createToken(userData.getEmail()+userData.getUserName());
-        User newUser = new User(userData.getUserName(), userData.getEmail(), userData.getPw());
-        newUser.setToken(newToken);
-        if(userRepository.findByEmail(userData.getEmail()) != null){
-            responseString = "Duplicate";
-        }
-        userRepository.save(newUser);
+        String responseString = "{\"topics\": \""+user.getTopics().trim()+"\", \"freq\": "+String.valueOf(user.getFrequency())+"}";
+        // return Json
         return new ResponseEntity<>(responseString, headers, HttpStatus.OK);
     }
 }

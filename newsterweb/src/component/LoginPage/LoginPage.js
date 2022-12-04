@@ -15,17 +15,16 @@ function LoginPage(props) {
       pw: pw,
     };
 
-    let response = axios.post("localhost:8080/login", info, {
+    let response = await axios.post("http://localhost:8080/login", info, {
       withCredentials: true,
     });
 
-    console.log(response);
-
-    let ret = response.data;
-    if ("error" in ret) {
-      alert(`${ret.error}`);
+    if (response.data.Correct === "No") {
+      alert("Incorrect email or password");
     } else {
-      window.location.href = "/";
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userName", response.data.userName);
+      window.location.href = "/user/" + response.data.userName;
     }
   }
 

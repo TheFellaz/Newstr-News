@@ -11,9 +11,18 @@ function MainPage(props) {
       <div className="InfoClass">{aboutInfo}</div>
       <img src="mainPage.png" className="mainPageImg"></img>
       <h1 className="fontClass">Do you want to Join Newster News??</h1>
-      <Link to={`/signup`}>
-        <BasicBtn btnName={"Sign Up"} />
-      </Link>
+
+      <br />
+      <br />
+      {localStorage.getItem("token") !== null ? (
+        <Link to={`/user/${localStorage.getItem("userName")}`}>
+          <BasicBtn btnName={"User Page"} />
+        </Link>
+      ) : (
+        <Link to={`/signup`}>
+          <BasicBtn btnName={"Sign Up"} />
+        </Link>
+      )}
     </div>
   );
 }

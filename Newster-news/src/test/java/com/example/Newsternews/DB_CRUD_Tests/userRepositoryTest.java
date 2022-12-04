@@ -28,16 +28,6 @@ public class userRepositoryTest {
             userRepository.save(user);
         });
         System.out.println(userRepository.getClass().getName());
-        IntStream.rangeClosed(5,10).forEach(i -> {
-
-            String name = "name2"+i;
-            String email = "email"+i;
-            String pw = "pw2"+i;
-            User user = new User(name, email, pw);
-            // 저장한다
-            userRepository.save(user);
-        });
-        System.out.println(userRepository.getClass().getName());
     }
 
     @Test
@@ -49,7 +39,7 @@ public class userRepositoryTest {
 //            User user = result.get();
 //            System.out.println(user);
 //        }
-        User tmpUser = userRepository.findByEmail("email1").get(0);
+        User tmpUser = userRepository.findByEmail("email1");
 //        System.out.println(userResult.toString());
 //        User tmpUser = userRepository.findByEmail("email1");
         System.out.println(tmpUser.toString());
@@ -57,10 +47,35 @@ public class userRepositoryTest {
 
     @Test
     public void testUpdate(){
-        User user = new User("Kim", "hk486@nau.edu", "pw", "[1,2,3]", 3, "token");
-        System.out.println("1-------------");
+//        IntStream.rangeClosed(1,10).forEach(i -> {
+//            String name = "name"+i;
+//            String email = "email"+i;
+//            String pw = "pw"+i;
+//            User user = new User(name, email, pw);
+//            // 저장한다
+//            userRepository.save(user);
+//        });
+//        System.out.println(userRepository.getClass().getName());
+//        IntStream.rangeClosed(5,10).forEach(i -> {
+//
+//            String name = "name2"+i;
+//            String email = "email"+i;
+//            String pw = "pw2"+i;
+//            User user = new User(name, email, pw);
+//            // 저장한다
+//            userRepository.save(user);
+//        });
+//        System.out.println(userRepository.getClass().getName());
+        User user = new User("kim", "hk486@nau.edu", "password", "topics", 1, "token");
         userRepository.save(user);
-        System.out.println("2-------------");
+    }
+
+    @Test
+    public void userFrequencyTest(){
+        List<User> userList = userRepository.findByFrequency(0);
+        for (int i = 0; i < userList.size(); i++) {
+            System.out.println(userList.get(i).toString());
+        }
     }
 
 }

@@ -26,6 +26,8 @@ public class Keys {
     public static String SEARCHTERM8 = "US";
     public static String SEARCHTERM9 = "World";
 
+    public static String[] SearchTermList = {SEARCHTERM1, SEARCHTERM2, SEARCHTERM3, SEARCHTERM4, SEARCHTERM5, SEARCHTERM6, SEARCHTERM7, SEARCHTERM8, SEARCHTERM9};
+
     //Number of Articles to return
     public static int COUNT = 10;
 

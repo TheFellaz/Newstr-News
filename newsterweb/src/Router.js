@@ -6,11 +6,12 @@ import NotFoundPage from "./component/NotFoundPage/NotFoundPage";
 import LoginPage from "./component/LoginPage/LoginPage";
 import MainPage from "./component/MainPage/MainPage";
 import UserProfilePage from "./component/UserProfilePage/UserProfilePage";
-import Header from "./component/Header/Header";
+// import Header from "./component/Header/Header";
 import Footer from "./component/Footer/Footer";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+const Header = React.lazy(() => import("./component/Header/Header"));
 
 function Router(props) {
   return (

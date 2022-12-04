@@ -4,14 +4,37 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@ToString
 @Getter
 @Builder(toBuilder = true)
-@AllArgsConstructor
-@NoArgsConstructor
+
 @Entity
-@Table(name = "NEWS_TB")
+@Table(name = "news_tb")
 public class News {
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "news_id=" + news_id +
+                ", newsTitle='" + newsTitle + '\'' +
+                ", date='" + date + '\'' +
+                ", newsUrl='" + newsUrl + '\'' +
+                ", topic=" + topic +
+                ", desc='" + desc + '\'' +
+                '}';
+    }
+
+    public News(){
+
+    }
+
+    public News(String newsTitle, String date, String newsUrl, int topic, String desc) {
+        this.newsTitle = newsTitle;
+        this.date = date;
+        this.newsUrl = newsUrl;
+        this.topic = topic;
+        this.desc = desc;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "news_id", nullable = false)
@@ -80,10 +103,10 @@ public class News {
         this.news_id = news_id;
     }
 
-    public void insert(String name, String description, String url)
+    public void insert(String title, String description, String url)
     {
-        newsTitle = name;
-        desc = description;
-        newsUrl = url;
+        setNewsTitle(title);
+        setDesc(description);
+        setNewsUrl(url);
     }
 }
