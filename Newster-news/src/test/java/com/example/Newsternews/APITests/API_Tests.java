@@ -4,7 +4,8 @@ package com.example.Newsternews.APITests;
 import com.example.Newsternews.API.API;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
-import org.junit.Test;
+//import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 

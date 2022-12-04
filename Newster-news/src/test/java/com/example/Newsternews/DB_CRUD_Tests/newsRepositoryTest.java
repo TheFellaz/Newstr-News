@@ -25,14 +25,13 @@ public class newsRepositoryTest {
 
     @Test
     public void testInsertNews() throws IOException {
-        LinkedList<News> result = API.SearchNews(Keys.SEARCHTERM1);
-        for (int i = 0; i < result.size(); i++) {
-            newsRepository.save(result.get(i));
+        for (int i = 0; i < Keys.SearchTermList.length; i++) {
+            LinkedList<News> result = API.SearchNews(Keys.SearchTermList[i]);
+            for (int j = 0; j < result.size(); j++) {
+                newsRepository.save(result.get(j));
+            }
         }
-//        result = API.SearchNews(Keys.SEARCHTERM2);
-//        for (int i = 0; i < result.size(); i++) {
-//            newsRepository.save(result.get(i));
-//        }
+
     }
 
     @Test
