@@ -4,13 +4,24 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@ToString
 @Getter
 @Builder(toBuilder = true)
 
 @Entity
 @Table(name = "news_tb")
 public class News {
+
+    @Override
+    public String toString() {
+        return "News{" +
+                "news_id=" + news_id +
+                ", newsTitle='" + newsTitle + '\'' +
+                ", date='" + date + '\'' +
+                ", newsUrl='" + newsUrl + '\'' +
+                ", topic=" + topic +
+                ", desc='" + desc + '\'' +
+                '}';
+    }
 
     public News(){
 
@@ -97,8 +108,5 @@ public class News {
         setNewsTitle(title);
         setDesc(description);
         setNewsUrl(url);
-//        newsTitle = title;
-//        desc = description;
-//        newsUrl = url;
     }
 }
