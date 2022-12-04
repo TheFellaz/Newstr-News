@@ -13,8 +13,8 @@ function CheckboxComponent(props) {
   };
 
   let tmpList = userTopicsList;
-
-  if (topicIndex in userTopicsList) {
+  console.log(tmpList);
+  if (userTopicsList.includes(topicIndex)) {
     return (
       <>
         <input
