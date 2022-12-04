@@ -4,6 +4,29 @@ import axios from "axios";
 import { res, validate } from "react-email-validator";
 import "./LoginPage.css";
 
+async function getUser() {
+  let info = {
+    token: localStorage.getItem("token"),
+  };
+  let response = await axios.post("http://localhost:8080/userInfo", info, {
+    withCredentials: true,
+  });
+
+  console.log(response.data.topics);
+  let topicList = [];
+  let topicStrList = response.data.topics.split(" ");
+  for (let i = 0; i < topicStrList.length; i++) {
+    topicList.push(parseInt(topicStrList[i]));
+  }
+  console.log(topicList);
+  console.log(response.data.freq);
+  let userObject = {
+    topics: topicList,
+    frequency: response.data.freq,
+  };
+  return userObject;
+}
+
 function LoginPage(props) {
   async function logIn(email, pw) {
     if (!validate(email)) {
@@ -24,6 +47,10 @@ function LoginPage(props) {
     } else {
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userName", response.data.userName);
+
+      let userObject = await getUser();
+      localStorage.setItem("userTopics", userObject.topics);
+      localStorage.setItem("userFrequency", userObject.frequency);
       window.location.href = "/user/" + response.data.userName;
     }
   }
