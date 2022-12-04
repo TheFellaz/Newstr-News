@@ -19,13 +19,12 @@ function LoginPage(props) {
       withCredentials: true,
     });
 
-    console.log(response);
-
-    let ret = response.data;
-    if (response.status === 200) {
-      window.location.href = "/";
+    if (response.data.Correct === "No") {
+      alert("Incorrect email or password");
     } else {
-      alert(`${ret.error}`);
+      localStorage.setItem("token", response.data.token);
+      localStorage.setItem("userName", response.data.userName);
+      window.location.href = "/user/" + response.data.userName;
     }
   }
 

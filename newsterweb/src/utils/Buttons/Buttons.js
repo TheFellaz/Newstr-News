@@ -98,13 +98,13 @@ function SignUpBtn() {
             withCredentials: true,
           }
         );
-
-        // if (signUpResponse.status === 200) {
-        //   window.location.href = "/login";
-        // } else {
-        //   alert("User already exists");
-        // }
-        console.log(JSON.stringify(userInfo));
+        // console.log(signUpResponse);
+        if (signUpResponse.data == "Duplicate") {
+          alert("Useremail already exists");
+        } else {
+          window.location.href = "/login";
+        }
+        // console.log(JSON.stringify(userInfo));
       }}
     >
       Sign Up

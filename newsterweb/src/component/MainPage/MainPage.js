@@ -14,6 +14,15 @@ function MainPage(props) {
       <Link to={`/signup`}>
         <BasicBtn btnName={"Sign Up"} />
       </Link>
+      <br />
+      <br />
+      {localStorage.getItem("token") !== null ? (
+        <Link to={`/user/${localStorage.getItem("userName")}`}>
+          <BasicBtn btnName={"User Page"} />
+        </Link>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
