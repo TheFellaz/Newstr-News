@@ -26,6 +26,7 @@ import java.io.*;
 @RequestMapping("/wawa")
 public class API
 {
+    //Raw JSON Response
     private static String JSONResponse;
 
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
@@ -40,7 +41,6 @@ public class API
     public static LinkedList<News> SearchNews(String searchTerm) throws IOException {
 
         // construct the search request URL (in the form of URL + query string)
-        //added count = 10 in url to control
         URL url = new URL(Keys.ENDPOINT + Keys.PATH + "?q=" +  URLEncoder.encode(searchTerm, "UTF-8")
                 + "&count=" + Keys.COUNT);
         HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -55,11 +55,13 @@ public class API
 
         stream.close();
 
-        //Linked list is stored as parsedResponse
+        //Linked list is stored as articles
         LinkedList<News> articles = parseThroughAPIResponse(response, searchTerm);
 
+        //Set the raw JSON response for testing
         setJSON(response);
 
+        //Return list of articles
         return articles;
 
     }
@@ -73,6 +75,7 @@ public class API
         int resultNumber;
         int topic;
 
+        //Assign topics to integer value for easy storage in SQL
         if (searchTerm.equals("Business")){
             topic = 1;
         }else if (searchTerm.equals("Entertainment_MovieAndTV")){
@@ -93,20 +96,21 @@ public class API
             topic = 9;
         }
 
+        //Parses the JSON to get to where the articles are stored
         JsonElement jelement = new JsonParser().parse(APIResponse);
         JsonObject jobject = jelement.getAsJsonObject();
         JsonArray jarray = jobject.getAsJsonArray("value");
 
+        //Loop through each article
         for(resultNumber = 0; resultNumber < Keys.COUNT; resultNumber++)
         {
             try
             {
-                //Get return for the first article
+                //Get return for the article
                 jobject = jarray.get(resultNumber).getAsJsonObject();
             }
 
             //Handles cases where the API does not return correct amount of articles
-            //TODO: Create better solution (Possibly limit of 8?)
             catch(IndexOutOfBoundsException e)
             {
                 System.out.println("WARN: API did not return correct amount of articles");
@@ -117,12 +121,19 @@ public class API
             name = jobject.get("name").getAsString();
             url = jobject.get("url").getAsString();
             description = jobject.get("description").getAsString().substring(0, 100) + "...";
+
+            //Get the local date and time
             LocalTime ArizonaNow = LocalTime.now(ZoneId.of("America/Phoenix"));
             String Date = ArizonaNow.toString();
+
+            //Create a News object for each article
             newsArticle = new News(name, Date, url, topic, description);
+
+            //Add the News object to the articles linked list
             articles.add(newsArticle);
         }
 
+        //Return the linked list of articles
         return articles;
 
     }

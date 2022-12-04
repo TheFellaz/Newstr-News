@@ -50,11 +50,4 @@ public class API_Tests {
         assertEquals(testQuery, Keys.SEARCHTERM1);
     }
 
-    @Test
-    public void assertValidQueries() throws Exception
-    {
-
-    }
-
-
 }
