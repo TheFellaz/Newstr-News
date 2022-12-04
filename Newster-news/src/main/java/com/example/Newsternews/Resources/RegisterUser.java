@@ -52,6 +52,21 @@ public class RegisterUser extends User {
 //    }
 
 
+    @Override
+    public String toString() {
+        return "RegisterUser{" +
+                "Business=" + Business +
+                ", Entertainment_MovieAndTV=" + Entertainment_MovieAndTV +
+                ", Entertainment_Music=" + Entertainment_Music +
+                ", Politics=" + Politics +
+                ", ScienceAndTechnology=" + ScienceAndTechnology +
+                ", Sports_NBA=" + Sports_NBA +
+                ", Sports_NFL=" + Sports_NFL +
+                ", US=" + US +
+                ", World=" + World +
+                '}';
+    }
+
     public RegisterUser(String userName,
                         String email,
                         String pw,
