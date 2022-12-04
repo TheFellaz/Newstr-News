@@ -3,6 +3,7 @@ package com.example.Newsternews.DB_CRUD_Tests;
 import com.example.Newsternews.API.API;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
+import com.example.Newsternews.Resources.Topic;
 import com.example.Newsternews.Resources.User;
 import com.example.Newsternews.newsRepository.NewsRepository;
 import org.junit.jupiter.api.Test;
@@ -25,8 +26,8 @@ public class newsRepositoryTest {
 
     @Test
     public void testInsertNews() throws IOException {
-        for (int i = 0; i < Keys.SearchTermList.length; i++) {
-            LinkedList<News> result = API.SearchNews(Keys.SearchTermList[i]);
+        for (int i = 0; i < Topic.SearchTermList.length; i++) {
+            LinkedList<News> result = API.SearchNews(Topic.SearchTermList[i]);
             for (int j = 0; j < result.size(); j++) {
                 newsRepository.save(result.get(j));
             }
@@ -51,8 +52,8 @@ public class newsRepositoryTest {
 
     @Test
     public void tmpTest(){
-        for (int i = 0; i < Keys.SearchTermList.length; i++) {
-            System.out.println(Keys.SearchTermList[i]);
+        for (int i = 0; i < Topic.SearchTermList.length; i++) {
+            System.out.println(Topic.SearchTermList[i]);
         }
     }
 

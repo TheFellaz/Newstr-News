@@ -16,18 +16,6 @@ public class Keys {
     public static String EMAIL_HEADER = "<h1>Newster News</h1>" +
             "<a>Thank you for subscribing to Newster News. View the latest articles below picked just for you!</a>";
 
-    public static String SEARCHTERM1 = "Business";
-    public static String SEARCHTERM2 = "Entertainment_MovieAndTV";
-    public static String SEARCHTERM3 = "Entertainment_Music";
-    public static String SEARCHTERM4 = "Politics";
-    public static String SEARCHTERM5 = "ScienceAndTechnology";
-    public static String SEARCHTERM6 = "Sports_NBA";
-    public static String SEARCHTERM7 = "Sports_NFL";
-    public static String SEARCHTERM8 = "US";
-    public static String SEARCHTERM9 = "World";
-
-    public static String[] SearchTermList = {SEARCHTERM1, SEARCHTERM2, SEARCHTERM3, SEARCHTERM4, SEARCHTERM5, SEARCHTERM6, SEARCHTERM7, SEARCHTERM8, SEARCHTERM9};
-
     //Number of Articles to return
     public static int COUNT = 10;
 

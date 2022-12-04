@@ -5,6 +5,7 @@ import com.example.Newsternews.API.API;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
 //import org.junit.Test;
+import com.example.Newsternews.Resources.Topic;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
@@ -23,7 +24,7 @@ public class API_Tests {
     @Test
     public void getAPIReturn() throws Exception
     {
-        LinkedList<News> result = API.SearchNews(Keys.SEARCHTERM1);
+        LinkedList<News> result = API.SearchNews(Topic.SEARCHTERM1);
 
         String url = result.get(0).getNewsUrl();
         String name = result.get(0).getNewsTitle();
@@ -39,7 +40,7 @@ public class API_Tests {
     @Test
     public void assertCorrectQuery() throws Exception
     {
-        LinkedList<News> result = API.SearchNews(Keys.SEARCHTERM1);
+        LinkedList<News> result = API.SearchNews(Topic.SEARCHTERM1);
 
         String JSONResult = API.getJSON();
 
@@ -47,7 +48,7 @@ public class API_Tests {
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();
 
-        assertEquals(testQuery, Keys.SEARCHTERM1);
+        assertEquals(testQuery, Topic.SEARCHTERM1);
     }
 
 }

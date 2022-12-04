@@ -2,6 +2,7 @@ package com.example.Newsternews.API;
 
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
+import com.example.Newsternews.Resources.Topic;
 import com.google.gson.*;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -76,25 +77,7 @@ public class API
         int topic;
 
         //Assign topics to integer value for easy storage in SQL
-        if (searchTerm.equals("Business")){
-            topic = 1;
-        }else if (searchTerm.equals("Entertainment_MovieAndTV")){
-            topic = 2;
-        }else if (searchTerm.equals("Entertainment_Music")){
-            topic = 3;
-        }else if (searchTerm.equals("Politics")){
-            topic = 4;
-        }else if (searchTerm.equals("ScienceAndTechnology")){
-            topic = 5;
-        }else if (searchTerm.equals("Sports_NBA")){
-            topic = 6;
-        }else if (searchTerm.equals("Sports_NFL")){
-            topic = 7;
-        }else if (searchTerm.equals("US")){
-            topic = 8;
-        }else{
-            topic = 9;
-        }
+        topic = Topic.getSearchTermValue(searchTerm);
 
         //Parses the JSON to get to where the articles are stored
         JsonElement jelement = new JsonParser().parse(APIResponse);
