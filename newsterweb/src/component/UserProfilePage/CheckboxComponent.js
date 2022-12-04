@@ -16,7 +16,7 @@ function CheckboxComponent(props) {
 
   if (topicIndex in userTopicsList) {
     return (
-      <div>
+      <>
         <input
           className="topicOption"
           id={topicName}
@@ -31,11 +31,12 @@ function CheckboxComponent(props) {
           }}
         ></input>
         <label htmlFor={topicName}>{topicName}</label>
-      </div>
+        <br />
+      </>
     );
   } else {
     return (
-      <div>
+      <>
         <input
           className="topicOption"
           id={topicName}
@@ -50,7 +51,8 @@ function CheckboxComponent(props) {
           }}
         ></input>
         <label htmlFor={topicName}>{topicName}</label>
-      </div>
+        <br />
+      </>
     );
   }
 }

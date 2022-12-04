@@ -7,102 +7,128 @@ import "./UserProfilePage.css";
 import { useParams } from "react-router-dom";
 import CheckboxComponent from "./CheckboxComponent";
 import RadioFieldComponent from "./RadioFieldComponent";
+import axios from "axios";
+
+async function getUser() {
+  let info = {
+    token: localStorage.getItem("token"),
+  };
+  let response = await axios.post("http://localhost:8080/userInfo", info, {
+    withCredentials: true,
+  });
+
+  console.log(response.data.topics);
+  let topicList = [];
+  let topicStrList = response.data.topics.split(" ");
+  for (let i = 0; i < topicStrList.length; i++) {
+    topicList.push(parseInt(topicStrList[i]));
+  }
+  console.log(topicList);
+  console.log(response.data.freq);
+  let userObject = {
+    topics: topicList,
+    frequency: response.data.freq,
+  };
+  return userObject;
+}
 
 function UserProfilePage(props) {
   let userName = useParams().id;
-  const currentDir = "/user" + userName;
-  let email = "Lifehasmanydoors@fedboi.yaaaahh";
-
   if (userName === undefined) {
     window.location.href = "/404NotFound";
     return -1; //not sure if this is dead code just making sure nothing weird happens after redirect
-  } else {
-    //verify token and username
-
-    let userToken = "foo";
-    /*let userInfoRequest = axios.post("http://localhost:8080/user", {
-      token: userToken,
-      email: email,
-    });*/
-
-    //let userObject = JSON.parse(userInfoRequest.data);
-    let userObject = {
-      topics: [0, 1, 2, 3, 4],
-      frequency: 2,
-      email: "hey baby yeah",
-    };
-
-    let userTopicsList = userObject.topics;
-    console.log("SIBAL");
-    console.log(userTopicsList);
-    let frequencySelection = userObject.frequency;
-    //let email = userObject.email;
-    const frequencyOptions = [
-      "Morning",
-      "Morning and Evening",
-      "Morning, Noon, and Evening",
-    ];
-
-    return (
-      <div>
-        <div id="topLeftUserInfoID">
-          Welcome back, {userName}. <br />
-          Your preferred email for news is currently {email}.
-        </div>
-
-        <form action="http://localhost:8080/register" method="post">
-          <div id="topicListID">
-            <h1>FUCK@</h1>
-
-            {TOPICS.map((topicName, topicIndex) => {
-              console.log(topicIndex);
-              //return GenerateTopicCheckbox(topicName, topicIndex, userTopicsList);
-              let info = {
-                topicName,
-                topicIndex,
-                userTopicsList,
-              };
-              return (
-                <div>
-                  <CheckboxComponent {...info} />
-                  <h1>FUCK1</h1>
-                </div>
-              );
-            })}
-          </div>
-
-          <RadioFieldComponent initialFrequency={frequencySelection} />
-
-          {/* <fieldset id="frequencyOptionsID">
-          <legend>Select an Email Frequency</legend>
-          {frequencyOptions.map((frequencyOption, frequencyIndex) =>
-            GenerateFrequencyRadio(
-              frequencySelection,
-              frequencyOption,
-              frequencyIndex
-            )
-          )}
-            </fieldset>*/}
-
-          {
-            //<RegisterUserInfoBtn token={userToken} />
-          }
-
-          <input type="hidden" name="token" value={userToken} />
-          <input type="hidden" name="email" value={email} />
-          <input type="hidden" name="userName" value={userName} />
-
-          <input
-            type="submit"
-            value="Save"
-            onClick={() => {
-              window.location.href("http://localhost:3000" + currentDir);
-            }}
-          />
-        </form>
-      </div>
-    );
   }
+  //verify token and username
+
+  // const frequencyOptions = [
+  //   "Morning",
+  //   "Morning and Evening",
+  //   "Morning, Noon, and Evening",
+  // ];
+  // let userObject = getUser();
+
+  let userObject = {
+    topics: [1, 2, 3],
+    frequency: 2,
+  };
+  let userTopicsList = userObject.topics;
+  let frequencySelection = userObject.frequency;
+
+  function checkTopic() {
+    const testElements = document.getElementsByClassName("topicOption");
+    let topicsList = "";
+    for (let i = 0; i < testElements.length; i++) {
+      if (testElements[i].checked) {
+        topicsList += i + 1 + " ";
+      }
+    }
+    return topicsList;
+  }
+
+  function checkFreq() {
+    const testElements = document.getElementsByClassName("frequencyOption");
+    let freq = "";
+    for (let i = 0; i < testElements.length; i++) {
+      if (testElements[i].checked) {
+        freq = i + 1;
+        break;
+      }
+    }
+    return freq;
+  }
+
+  async function registerPreference() {
+    let topicsList = checkTopic();
+    let freq = checkFreq();
+    console.log(topicsList);
+    console.log(freq);
+    let registerInfoRequest = await axios.post(
+      "http://localhost:8080/register",
+      {
+        token: localStorage.getItem("token"),
+        topics: topicsList,
+        frequency: freq,
+      }
+    );
+    if (registerInfoRequest.data.Correct === "Yes") {
+      alert("Successfully registered your preferences!");
+    }
+  }
+  let response = getUser();
+  return (
+    <div>
+      <div id="topLeftUserInfoID">
+        Welcome back, {userName}. <br />
+      </div>
+
+      <div id="topicListID">
+        <h1>TopicList</h1>
+
+        {TOPICS.map((topicName, topicIndex) => {
+          console.log(topicIndex);
+
+          let info = {
+            topicName,
+            topicIndex,
+            userTopicsList,
+          };
+          return <CheckboxComponent {...info} />;
+        })}
+      </div>
+
+      <br />
+      <br />
+
+      <RadioFieldComponent initialFrequency={frequencySelection} />
+      <button
+        onClick={async () => {
+          await registerPreference();
+        }}
+      >
+        Save
+      </button>
+    </div>
+  );
 }
 
 function GenerateTopicCheckbox(topicName, topicIndex, userTopicList) {

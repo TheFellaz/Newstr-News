@@ -8,7 +8,7 @@ function RadioFieldComponent(props) {
   return (
     <div>
       <fieldset>
-        <legend>Email Frequency</legend>
+        <h1>Email Frequency</h1>
 
         <div>
           <input
