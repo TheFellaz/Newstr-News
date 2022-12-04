@@ -15,7 +15,7 @@ public interface UserRepository extends JpaRepository<User, String> {
     List<User> findAll();
 
     @Query(value = "SELECT * FROM user_tb WHERE user_email = ?1", nativeQuery = true)
-    List<User> findByEmail(String email);
+    User findByEmail(String email);
 
     @Query(value = "SELECT * FROM user_tb WHERE user_frequency =?1", nativeQuery = true)
     List<User> findByFrequency(int frequency);
