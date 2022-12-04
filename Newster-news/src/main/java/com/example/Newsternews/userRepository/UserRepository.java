@@ -19,4 +19,7 @@ public interface UserRepository extends JpaRepository<User, String> {
 
     @Query(value = "SELECT * FROM user_tb WHERE user_frequency =?1", nativeQuery = true)
     List<User> findByFrequency(int frequency);
+
+    @Query(value = "SELECT * FROM user_tb WHERE user_token =?1", nativeQuery = true)
+    User findByToken(String token);
 }
