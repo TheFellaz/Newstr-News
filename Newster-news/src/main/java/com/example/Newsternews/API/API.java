@@ -26,6 +26,8 @@ import java.io.*;
 @RequestMapping("/wawa")
 public class API
 {
+    private static String JSONResponse;
+
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
         JsonParser parser = new JsonParser();
@@ -55,6 +57,8 @@ public class API
 
         //Linked list is stored as parsedResponse
         LinkedList<News> articles = parseThroughAPIResponse(response, searchTerm);
+
+        setJSON(response);
 
         return articles;
 
@@ -121,6 +125,16 @@ public class API
 
         return articles;
 
+    }
+
+    public static void setJSON(String JSON)
+    {
+        JSONResponse = JSON;
+    }
+
+    public static String getJSON()
+    {
+        return JSONResponse;
     }
 
 }

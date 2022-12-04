@@ -5,6 +5,9 @@ import com.example.Newsternews.API.API;
 import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
 //import org.junit.Test;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -36,14 +39,22 @@ public class API_Tests {
     @Test
     public void assertCorrectQuery() throws Exception
     {
-        /*
-        String testString = API.SearchNews(Keys.SEARCHTERM1);
-        JsonElement jelement = new JsonParser().parse(testString);
+        LinkedList<News> result = API.SearchNews(Keys.SEARCHTERM1);
+
+        String JSONResult = API.getJSON();
+
+        JsonElement jelement = new JsonParser().parse(JSONResult);
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();
-        //TODO: ADD TEST FOR DIFFERENT SEARCHTERM POSSIBILITIES
+
         assertEquals(testQuery, Keys.SEARCHTERM1);
-        */
     }
+
+    @Test
+    public void assertValidQueries() throws Exception
+    {
+
+    }
+
 
 }
