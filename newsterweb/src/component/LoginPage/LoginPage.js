@@ -15,17 +15,17 @@ function LoginPage(props) {
       pw: pw,
     };
 
-    let response = axios.post("localhost:8080/login", info, {
+    let response = await axios.post("http://localhost:8080/login", info, {
       withCredentials: true,
     });
 
     console.log(response);
 
     let ret = response.data;
-    if ("error" in ret) {
-      alert(`${ret.error}`);
-    } else {
+    if (response.status === 200) {
       window.location.href = "/";
+    } else {
+      alert(`${ret.error}`);
     }
   }
 

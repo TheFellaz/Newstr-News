@@ -60,7 +60,7 @@ function SignUpBtn() {
   return (
     <Button
       className="SignUpBtn"
-      onClick={() => {
+      onClick={async () => {
         //check if passwords match
         let passwordInput = document.getElementById("password").value;
 
@@ -85,26 +85,25 @@ function SignUpBtn() {
 
         //create JSON object to send in request
         const userInfo = {
-          username: usernameInput,
+          userName: usernameInput,
           email: emailInput,
           pw: passwordInput,
         };
 
         //make Sign up HTTP request to backend
-        let signUpResponse = axios
-          .post("http://localhost:8080/signup", userInfo, {
+        let signUpResponse = await axios.post(
+          "http://localhost:8080/signup",
+          userInfo,
+          {
             withCredentials: true,
-          })
-          .then(() => {
-            window.location.href = "/login";
-          })
-          .catch((error) => {
-            if (error.response.status !== 200) {
-              alert(
-                "This email is already in use. Please use a different one lmao"
-              );
-            }
-          });
+          }
+        );
+
+        // if (signUpResponse.status === 200) {
+        //   window.location.href = "/login";
+        // } else {
+        //   alert("User already exists");
+        // }
         console.log(JSON.stringify(userInfo));
       }}
     >
