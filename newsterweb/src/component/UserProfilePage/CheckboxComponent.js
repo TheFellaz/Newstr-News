@@ -21,12 +21,13 @@ function CheckboxComponent(props) {
           className="topicOption"
           id={topicName}
           type="checkbox"
-          name={topicName}
+          name={topicIndex}
           value="true"
           checked={!isChecked}
           onChange={(e) => {
             setIsChecked(!isChecked);
-            console.log(topicName, isChecked);
+            //e.target._valueTracker.setValue(isChecked);
+            console.log(topicName, e.target._valueTracker.getValue());
           }}
         ></input>
         <label htmlFor={topicName}>{topicName}</label>
@@ -39,11 +40,13 @@ function CheckboxComponent(props) {
           className="topicOption"
           id={topicName}
           type="checkbox"
-          name={topicName}
+          name={topicIndex}
           value="true"
           checked={isChecked}
           onChange={(e) => {
             setIsChecked(!isChecked);
+            //e.target._valueTracker.setValue(!isChecked);
+            console.log(topicName, e.target._valueTracker.getValue());
           }}
         ></input>
         <label htmlFor={topicName}>{topicName}</label>

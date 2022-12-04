@@ -9,12 +9,18 @@ function BasicBtn({ btnName, handleBtn }) {
 }
 
 function RegisterUserInfoBtn(token) {
-  const [checkedTopics, updateCheckedTopics] = useState(null);
+  const [checkedTopics, updateCheckedTopics] = useState(
+    document.querySelectorAll(".topicOption")
+  );
+  const [selectedFrequency, updateSelectedFrequency] = useState(
+    document.querySelector(".frequencyOption[checked='true']")
+  );
+
   return (
     <Button
       className="RegisterUserInfoBtn"
       onClick={() => {
-        updateCheckedTopics(document.querySelectorAll(".topicOption[checked]"));
+        updateCheckedTopics(document.querySelectorAll(".topicOption"));
         //get updated user data
         let TopicList = document.querySelectorAll(".topicOption[checked]");
         let newTopicList = [];
@@ -23,13 +29,24 @@ function RegisterUserInfoBtn(token) {
           }
         });
 
-        let newFrequencySelection = document.querySelector(
-          ".frequencyOption[checked]"
+        //  let newFrequencySelection =
+        //  document.querySelector(".frequencyOption");
+
+        updateSelectedFrequency(
+          document.querySelectorAll(".frequencyOption[checked]")
         );
 
         console.log(checkedTopics);
-        console.log(newFrequencySelection);
-        console.log(token);
+        if (checkedTopics !== null) {
+          console.log(checkedTopics[0]._valueTracker.getValue());
+        }
+        if (selectedFrequency !== null) {
+          console.log(selectedFrequency);
+        } else {
+          console.log("damn it");
+        }
+        console.log(document.querySelectorAll(".frequencyOption"));
+        //console.log(token);
 
         //format into object to send
       }}
@@ -70,7 +87,7 @@ function SignUpBtn() {
         const userInfo = {
           username: usernameInput,
           email: emailInput,
-          password: passwordInput,
+          pw: passwordInput,
         };
 
         //make Sign up HTTP request to backend

@@ -6,9 +6,12 @@ import { RegisterUserInfoBtn } from "../../utils/Buttons/Buttons.js";
 import "./UserProfilePage.css";
 import { useParams } from "react-router-dom";
 import CheckboxComponent from "./CheckboxComponent";
+import RadioFieldComponent from "./RadioFieldComponent";
 
 function UserProfilePage(props) {
   let userName = useParams().id;
+  const currentDir = "/user" + userName;
+  let email = "Lifehasmanydoors@fedboi.yaaaahh";
 
   if (userName === undefined) {
     window.location.href = "/404NotFound";
@@ -19,12 +22,12 @@ function UserProfilePage(props) {
     let userToken = "foo";
     /*let userInfoRequest = axios.post("http://localhost:8080/user", {
       token: userToken,
-      userName: userName,
+      email: email,
     });*/
 
     //let userObject = JSON.parse(userInfoRequest.data);
     let userObject = {
-      topics: [1, 2, 3, 4],
+      topics: [0, 1, 2, 3, 4],
       frequency: 2,
       email: "hey baby yeah",
     };
@@ -33,7 +36,7 @@ function UserProfilePage(props) {
     console.log("SIBAL");
     console.log(userTopicsList);
     let frequencySelection = userObject.frequency;
-    let email = userObject.email;
+    //let email = userObject.email;
     const frequencyOptions = [
       "Morning",
       "Morning and Evening",
@@ -53,12 +56,8 @@ function UserProfilePage(props) {
 
             {TOPICS.map((topicName, topicIndex) => {
               console.log(topicIndex);
-              return GenerateTopicCheckbox(
-                topicName,
-                topicIndex,
-                userTopicsList
-              );
-              /* let info = {
+              //return GenerateTopicCheckbox(topicName, topicIndex, userTopicsList);
+              let info = {
                 topicName,
                 topicIndex,
                 userTopicsList,
@@ -68,28 +67,38 @@ function UserProfilePage(props) {
                   <CheckboxComponent {...info} />
                   <h1>FUCK1</h1>
                 </div>
-              );*/
+              );
             })}
           </div>
 
-          <fieldset id="frequencyOptionsID">
-            <legend>Select an Email Frequency</legend>
-            {frequencyOptions.map((frequencyOption, frequencyIndex) =>
-              GenerateFrequencyRadio(
-                frequencySelection,
-                frequencyOption,
-                frequencyIndex
-              )
-            )}
-          </fieldset>
+          <RadioFieldComponent initialFrequency={frequencySelection} />
+
+          {/* <fieldset id="frequencyOptionsID">
+          <legend>Select an Email Frequency</legend>
+          {frequencyOptions.map((frequencyOption, frequencyIndex) =>
+            GenerateFrequencyRadio(
+              frequencySelection,
+              frequencyOption,
+              frequencyIndex
+            )
+          )}
+            </fieldset>*/}
 
           {
             //<RegisterUserInfoBtn token={userToken} />
           }
 
           <input type="hidden" name="token" value={userToken} />
+          <input type="hidden" name="email" value={email} />
+          <input type="hidden" name="userName" value={userName} />
 
-          <input type="submit" value="Save" />
+          <input
+            type="submit"
+            value="Save"
+            onClick={() => {
+              window.location.href("http://localhost:3000" + currentDir);
+            }}
+          />
         </form>
       </div>
     );
@@ -132,6 +141,9 @@ function GenerateFrequencyRadio(
   frequencyOptionName,
   frequencyOptionIndex
 ) {
+  //const [selectedFrequency, setSelectedFrequency] = useState(
+  //  userFrequencySelection
+  //);
   if (frequencyOptionIndex === userFrequencySelection) {
     return (
       <div>
