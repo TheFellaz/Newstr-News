@@ -2,9 +2,58 @@ import * as React from "react";
 import Button from "react-bootstrap/Button";
 import verifyEmailFormat from "../EmailUtil.js";
 import axios from "axios";
+import { useState } from "react";
 
 function BasicBtn({ btnName, handleBtn }) {
   return <Button onClick={handleBtn}>{btnName}</Button>;
+}
+
+function RegisterUserInfoBtn(token) {
+  const [checkedTopics, updateCheckedTopics] = useState(
+    document.querySelectorAll(".topicOption")
+  );
+  const [selectedFrequency, updateSelectedFrequency] = useState(
+    document.querySelector(".frequencyOption[checked='true']")
+  );
+
+  return (
+    <Button
+      className="RegisterUserInfoBtn"
+      onClick={() => {
+        updateCheckedTopics(document.querySelectorAll(".topicOption"));
+        //get updated user data
+        let TopicList = document.querySelectorAll(".topicOption[checked]");
+        let newTopicList = [];
+        TopicList.forEach((topic) => {
+          if (topic.checked) {
+          }
+        });
+
+        //  let newFrequencySelection =
+        //  document.querySelector(".frequencyOption");
+
+        updateSelectedFrequency(
+          document.querySelectorAll(".frequencyOption[checked]")
+        );
+
+        console.log(checkedTopics);
+        if (checkedTopics !== null) {
+          console.log(checkedTopics[0]._valueTracker.getValue());
+        }
+        if (selectedFrequency !== null) {
+          console.log(selectedFrequency);
+        } else {
+          console.log("damn it");
+        }
+        console.log(document.querySelectorAll(".frequencyOption"));
+        //console.log(token);
+
+        //format into object to send
+      }}
+    >
+      Save
+    </Button>
+  );
 }
 
 function SignUpBtn() {
@@ -20,7 +69,7 @@ function SignUpBtn() {
 
         let compareVal = passwordInput.localeCompare(passwordComparison);
 
-        if (compareVal != 0) {
+        if (compareVal !== 0) {
           alert("The Password and Confirm Password Fields must match");
           return -1;
         }
@@ -29,7 +78,7 @@ function SignUpBtn() {
         let emailInput = document.getElementById("email").value;
         let usernameInput = document.getElementById("usernameID").value;
 
-        if (verifyEmailFormat(emailInput) == false) {
+        if (verifyEmailFormat(emailInput) === false) {
           alert("Please enter a valid email Address");
           return -2;
         }
@@ -38,7 +87,7 @@ function SignUpBtn() {
         const userInfo = {
           username: usernameInput,
           email: emailInput,
-          password: passwordInput,
+          pw: passwordInput,
         };
 
         //make Sign up HTTP request to backend
@@ -64,4 +113,4 @@ function SignUpBtn() {
   );
 }
 
-export { BasicBtn, SignUpBtn };
+export { BasicBtn, SignUpBtn, RegisterUserInfoBtn };

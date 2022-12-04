@@ -1,4 +1,4 @@
 export default function verifyEmailFormat(email) {
-  const emailFormatRegex = new RegExp(".*@.*\\.(edu)|(com)|(org)|(net)|(gov)");
+  const emailFormatRegex = new RegExp(".*@.*\\..*");
   return emailFormatRegex.test(email);
 }
