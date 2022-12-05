@@ -2,9 +2,11 @@ package com.example.Newsternews.APITests;
 
 
 import com.example.Newsternews.API.API;
-import com.example.Newsternews.Keys.Keys;
 import com.example.Newsternews.Resources.News;
-//import org.junit.Test;
+import com.example.Newsternews.Resources.Topic;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -20,7 +22,7 @@ public class API_Tests {
     @Test
     public void getAPIReturn() throws Exception
     {
-        LinkedList<News> result = API.SearchNews(Keys.SEARCHTERM1);
+        LinkedList<News> result = API.SearchNews(Topic.SEARCHTERM1);
 
         String url = result.get(0).getNewsUrl();
         String name = result.get(0).getNewsTitle();
@@ -36,14 +38,16 @@ public class API_Tests {
     @Test
     public void assertCorrectQuery() throws Exception
     {
-        /*
-        String testString = API.SearchNews(Keys.SEARCHTERM1);
-        JsonElement jelement = new JsonParser().parse(testString);
+        LinkedList<News> result = API.SearchNews(Topic.SEARCHTERM1);
+
+        String JSONResult = API.getJSON();
+
+        @SuppressWarnings("deprecation")
+        JsonElement jelement = new JsonParser().parse(JSONResult);
         JsonObject jobject = jelement.getAsJsonObject();
         String testQuery = jobject.get("queryContext").getAsJsonObject().get("originalQuery").getAsString();
-        //TODO: ADD TEST FOR DIFFERENT SEARCHTERM POSSIBILITIES
-        assertEquals(testQuery, Keys.SEARCHTERM1);
-        */
+
+        assertEquals(testQuery, Topic.SEARCHTERM1);
     }
 
 }

@@ -16,6 +16,8 @@ function Header(props) {
       document.getElementById("loginBtnId").innerText = "LOGIN";
       localStorage.removeItem("token");
       localStorage.removeItem("userName");
+      localStorage.removeItem("userTopics");
+      localStorage.removeItem("userFrequency");
       window.location.href = "/";
     } else if (document.getElementById("loginBtnId").innerText === "LOGIN") {
       window.location.href = "/login";

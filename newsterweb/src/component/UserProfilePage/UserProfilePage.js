@@ -9,51 +9,7 @@ import CheckboxComponent from "./CheckboxComponent";
 import RadioFieldComponent from "./RadioFieldComponent";
 import axios from "axios";
 
-async function getUser() {
-  let info = {
-    token: localStorage.getItem("token"),
-  };
-  let response = await axios.post("http://localhost:8080/userInfo", info, {
-    withCredentials: true,
-  });
-
-  console.log(response.data.topics);
-  let topicList = [];
-  let topicStrList = response.data.topics.split(" ");
-  for (let i = 0; i < topicStrList.length; i++) {
-    topicList.push(parseInt(topicStrList[i]));
-  }
-  console.log(topicList);
-  console.log(response.data.freq);
-  let userObject = {
-    topics: topicList,
-    frequency: response.data.freq,
-  };
-  return userObject;
-}
-
 function UserProfilePage(props) {
-  let userName = useParams().id;
-  if (userName === undefined) {
-    window.location.href = "/404NotFound";
-    return -1; //not sure if this is dead code just making sure nothing weird happens after redirect
-  }
-  //verify token and username
-
-  // const frequencyOptions = [
-  //   "Morning",
-  //   "Morning and Evening",
-  //   "Morning, Noon, and Evening",
-  // ];
-  // let userObject = getUser();
-
-  let userObject = {
-    topics: [3, 4, 5],
-    frequency: 2,
-  };
-  let userTopicsList = userObject.topics;
-  let frequencySelection = userObject.frequency;
-
   function checkTopic() {
     const testElements = document.getElementsByClassName("topicOption");
     let topicsList = "";
@@ -80,8 +36,8 @@ function UserProfilePage(props) {
   async function registerPreference() {
     let topicsList = checkTopic();
     let freq = checkFreq();
-    console.log(topicsList);
-    console.log(freq);
+    // console.log(topicsList);
+    // console.log(freq);
     let registerInfoRequest = await axios.post(
       "http://localhost:8080/register",
       {
@@ -93,8 +49,29 @@ function UserProfilePage(props) {
     if (registerInfoRequest.data.Correct === "Yes") {
       alert("Successfully registered your preferences!");
     }
+    localStorage.setItem("userTopics", topicsList);
+    localStorage.setItem("userFrequency", freq);
   }
-  let response = getUser();
+
+  let userName = useParams().id;
+  if (userName === undefined) {
+    window.location.href = "/404NotFound";
+    return -1; //not sure if this is dead code just making sure nothing weird happens after redirect
+  }
+  //verify token and username
+  let userTopicsList = [];
+  let userFrequency = 1;
+  if (localStorage.getItem("userTopics") != null) {
+    let userStrList = localStorage.getItem("userTopics").trim().split(" ");
+    console.log(userStrList);
+    for (let i = 0; i < userStrList.length; i++) {
+      userTopicsList.push(parseInt(userStrList[i]) - 1);
+    }
+  }
+  if (localStorage.getItem("userFrequency") != null) {
+    userFrequency = localStorage.getItem("userFrequency");
+  }
+
   return (
     <div>
       <div id="topLeftUserInfoID">
@@ -105,8 +82,6 @@ function UserProfilePage(props) {
         <h1>TopicList</h1>
 
         {TOPICS.map((topicName, topicIndex) => {
-          console.log(topicIndex);
-
           let info = {
             topicName,
             topicIndex,
@@ -119,7 +94,7 @@ function UserProfilePage(props) {
       <br />
       <br />
 
-      <RadioFieldComponent initialFrequency={frequencySelection} />
+      <RadioFieldComponent initialFrequency={userFrequency} />
       <button
         onClick={async () => {
           await registerPreference();
