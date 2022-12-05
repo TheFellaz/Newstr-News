@@ -48,7 +48,7 @@ function UserProfilePage(props) {
   // let userObject = getUser();
 
   let userObject = {
-    topics: [1, 2, 3],
+    topics: [3, 4, 5],
     frequency: 2,
   };
   let userTopicsList = userObject.topics;
