@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { res, validate } from "react-email-validator";
+//import { res, validate } from "react-email-validator";
 import "./LoginPage.css";
+import verifyEmailFormat from "../../utils/EmailUtil";
 
 function LoginPage(props) {
   async function logIn(email, pw) {
-    if (!validate(email)) {
+    if (!verifyEmailFormat(email)) {
       alert("Is not email");
       return;
     }
