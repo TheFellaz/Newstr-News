@@ -1,4 +1,4 @@
-import verifyEmailFormat from "./EmailUtil";
+import verifyEmailFormat from "../utils/EmailUtil";
 
 it("correctly verifies email format", () => {
   expect(verifyEmailFormat("john.doe123@gmail.com")).toBe(true);

@@ -1,7 +1,7 @@
 import React from "react";
 import * as ReactDOM from "react-dom/client";
-import App from "./App";
-import "./App.css";
+import App from "../App";
+import "../App.css";
 
 it("renders the application", () => {
   const div = document.createElement("div");
