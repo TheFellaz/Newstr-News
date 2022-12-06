@@ -24,7 +24,7 @@ public class userRepositoryTest {
             String email = "email"+i;
             String pw = "pw"+i;
             User user = new User(name, email, pw);
-            // 저장한다
+
             userRepository.save(user);
         });
         System.out.println(userRepository.getClass().getName());
