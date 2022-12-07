@@ -1,3 +1,4 @@
+# Team Project - D.7 V & V
 
 ## 1. Description
 
@@ -16,29 +17,38 @@ Website: http://newster-news.com/
 
 ## 2. Verification
 
-### Unit test
+### 2.1 Unit test
 
+### 2.1.1 Test framework to develop our tests
 `Backend: Junit4`
+`Frontend: Jest`
 
-**Link to your GitHub folder**
+### 2.1.2 **Link to your GitHub folder where your automated unit tests are located**
 
-[GitHub](https://github.com/TheFellaz/Newstr-News)
+[Backend Unit Test Link](https://github.com/TheFellaz/Newstr-News/tree/main/Newster-news/src/test/java/com/example/Newsternews)
+<br/>
+[Frontend Unit Test Link](https://github.com/TheFellaz/Newstr-News/tree/main/newsterweb/src/__test__)
 
-**An example of a test case that makes use of mock objects. Include in your answer a GitHub link to the class being tested and to the test.**
-[API test](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Mock.java)
+
+### 2.1.3 **An example of a test case that makes use of mock objects. Include in your answer a GitHub link to the class being tested and to the test.**
+
+**Backend Tested Object**
+[Backend test case file](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Mock.java)
 
 **Print Screen:**
 **![](https://lh3.googleusercontent.com/Hk_sY6V3Fr2e77rR8ytjSzvMr0O-Ixip_4lqnJzzA33r1Lx6Fu1GbkMMkLXA5iHn1OuC6gxmdYhCz-gb8xfbMbUhpWqkS03toVycX26iN1FbY6lNCucVDVaq704Qv45gsDkHVqFTmUVhQf1jZxpVXygPvUfIIGGaautR0qZ7ErF6r37Lhm6G8qC673-3tw)**
 
-### Acceptance Test
+### 2.2 Acceptance Test
 
-**framework**
+### 2.2.1 **Test framework you used to develop your test**
 Selenium
 
-**Link to your GitHub folder**
-[GitHub](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/AcceptanceTest/MainPageTest.java)
+### 2.2.2 **Link to your GitHub folder where your automated acceptance tests are located**
+[Acceptance Test Link](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/AcceptanceTest)
 
-**Test examples**
+### 2.2.3 **Test examples of an acceptance test**
+
+[Github Link for Acceptance Test](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/AcceptanceTest/MainPageTest.java)
 
 testTitle()
 
@@ -73,10 +83,10 @@ testSignUpPage()
     
 -   Assert.assertThat(driver.getCurrentUrl(),is(actualUrl));
 
-**Test Demo**
-[Demo](https://drive.google.com/file/d/1XcSZWGS2aefwGC4HMFEmNRf0ojDJ4tzy/view?usp=sharing)
+###2.2.4 **Test Video**
+[Test result Video](https://drive.google.com/file/d/1XcSZWGS2aefwGC4HMFEmNRf0ojDJ4tzy/view?usp=sharing)
 
-## 3. Validation
+## 3. Validation (user evaluation)
 
 **Validation aims to ensure that you developed the right product. At the beginning of the semester, you talked to the clients/potential users to understand their needs. Now it is time to check if you are on the right track by conducting some user evaluation on the actual system.**
 
@@ -104,9 +114,8 @@ Questions:
 6.  How would you rate your experience out of 10?
 
 
-### Interviews
-
-**Ethan Hall:**
+### Interviews Results 
+#### Interview 1. **Ethan Hall:**
 
 Tasks:
 
@@ -131,8 +140,7 @@ Answers to questions:
 
   
   
-
-**Evan Johnson:**
+#### Interview 2. **Evan Johnson:**
 
 Tasks:
 
@@ -159,8 +167,7 @@ Answer
   
   
   
-
-**Jaesang Park:**
+#### Interview 3. **Jaesang Park:**
 
 Tasks:
 
@@ -210,4 +217,3 @@ Reflect on what you observed. Some questions that you can explore: What features
 **Liked the most:**
 
 -   The users liked how straightforward the application was. There was no complicated aspects of our UI.
--   
