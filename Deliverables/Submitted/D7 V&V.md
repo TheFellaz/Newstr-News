@@ -83,7 +83,7 @@ testSignUpPage()
     
 -   Assert.assertThat(driver.getCurrentUrl(),is(actualUrl));
 
-###2.2.4 **Test Video**
+### 2.2.4 **Test Video**
 [Test result Video](https://drive.google.com/file/d/1XcSZWGS2aefwGC4HMFEmNRf0ojDJ4tzy/view?usp=sharing)
 
 ## 3. Validation (user evaluation)
