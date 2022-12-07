@@ -32,7 +32,8 @@ Website: http://newster-news.com/
 
 ### 2.1.3 **An example of a test case that makes use of mock objects. Include in your answer a GitHub link to the class being tested and to the test.**
 
-**Backend Tested Object**
+**Backend Tested Object : API** 
+<br/>
 [Backend test case file](https://github.com/TheFellaz/Newstr-News/blob/main/Newster-news/src/test/java/com/example/Newsternews/APITests/API_Mock.java)
 
 **Print Screen:**
